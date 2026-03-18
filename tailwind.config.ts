@@ -9,8 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        void: "#07080C",
+        deep: "#0B0D14",
+        surface: "#10131C",
+        card: "#151925",
+        "card-hover": "#1A1F30",
+        gold: {
+          50: "#FFF8E1",
+          100: "#F5E6A3",
+          200: "#E8C547",
+          300: "#D4AF37",
+          400: "#B8941E",
+          500: "#8B6914",
+        },
+      },
+      fontFamily: {
+        display: ["Cormorant Garamond", "Georgia", "serif"],
+        body: ["DM Sans", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
     },
   },
