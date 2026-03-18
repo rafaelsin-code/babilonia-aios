@@ -1,150 +1,138 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Search } from "lucide-react";
-import { getAllAgents } from "@/data/squads";
+import { Copy } from "lucide-react";
+import { squads } from "@/data/squads";
 
-const allAgents = getAllAgents();
-const squadNames = Array.from(new Set(allAgents.map((a) => a.squadName))).sort();
+const totalAgents = squads.reduce((acc, s) => acc + s.agents.length, 0);
+const totalSquads = squads.length;
 
 export default function AgentsPage() {
-  const [search, setSearch] = useState("");
-  const [selectedSquad, setSelectedSquad] = useState<string | null>(null);
+  const [copiedPath, setCopiedPath] = useState<string | null>(null);
 
-  const filtered = useMemo(() => {
-    return allAgents.filter((agent) => {
-      const matchesSearch =
-        !search ||
-        agent.name.toLowerCase().includes(search.toLowerCase()) ||
-        agent.role.toLowerCase().includes(search.toLowerCase()) ||
-        agent.description.toLowerCase().includes(search.toLowerCase());
-      const matchesSquad = !selectedSquad || agent.squadName === selectedSquad;
-      return matchesSearch && matchesSquad;
-    });
-  }, [search, selectedSquad]);
+  const handleCopy = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(path);
+    setCopiedPath(path);
+    setTimeout(() => setCopiedPath(null), 1500);
+  };
 
   return (
     <div className="min-h-screen p-8 md:p-12">
       {/* Header */}
       <div className="mb-10 animate-fade-in-up">
         <h1 className="font-display text-4xl md:text-5xl font-semibold text-gold-50 tracking-wide">
-          Agentes
+          Todos os Agentes
         </h1>
         <p className="text-secondary mt-2 text-lg">
-          <span className="text-gold-300 font-mono text-sm font-medium">
-            {filtered.length}
-          </span>{" "}
-          <span className="text-muted">de</span>{" "}
-          <span className="text-gold-300 font-mono text-sm font-medium">
-            {allAgents.length}
-          </span>{" "}
-          agentes
+          Todos os agentes disponiveis para ativacao
+        </p>
+        <p className="text-muted mt-1 text-sm">
+          {totalAgents} agentes distribuidos em {totalSquads} squads. Clique no card para ver a bio.
         </p>
       </div>
 
-      {/* Search & Filters */}
-      <div className="mb-8 space-y-4 animate-fade-in-up delay-100">
-        {/* Search bar */}
-        <div className="relative max-w-xl">
-          <Search
-            size={18}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-muted"
-          />
-          <input
-            type="text"
-            placeholder="Buscar agente por nome, role ou descricao..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-surface border border-subtle rounded-lg pl-11 pr-4 py-3 text-sm text-primary placeholder:text-muted focus:outline-none focus:border-gold-300/40 transition-colors"
-          />
-        </div>
-
-        {/* Squad filter pills */}
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setSelectedSquad(null)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border ${
-              selectedSquad === null
-                ? "bg-gold-300/15 text-gold-200 border-gold-300/30"
-                : "bg-surface text-secondary border-subtle hover:text-primary hover:border-gold-300/20"
-            }`}
-          >
-            Todos
-          </button>
-          {squadNames.map((name) => (
-            <button
-              key={name}
-              onClick={() =>
-                setSelectedSquad(selectedSquad === name ? null : name)
-              }
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border ${
-                selectedSquad === name
-                  ? "bg-gold-300/15 text-gold-200 border-gold-300/30"
-                  : "bg-surface text-secondary border-subtle hover:text-primary hover:border-gold-300/20"
-              }`}
+      {/* Squads sections */}
+      <div className="space-y-10 animate-fade-in-up delay-200">
+        {squads.map((squad) => (
+          <section key={squad.slug}>
+            {/* Squad header */}
+            <div
+              className="flex items-center gap-3 mb-4 pl-4"
+              style={{ borderLeft: `3px solid ${squad.accent}` }}
             >
-              {name}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Agents Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 animate-fade-in-up delay-200">
-        {filtered.map((agent) => (
-          <Link
-            key={`${agent.squadSlug}-${agent.id}`}
-            href={`/squads/${agent.squadSlug}`}
-            className="group bg-card border border-subtle rounded-xl p-5 hover:bg-card-hover hover:border-gold-300/20 transition-all duration-300"
-          >
-            <div className="flex items-start gap-3.5">
-              {/* Colored circle with initials */}
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-xs font-mono font-semibold"
+              <h2 className="text-lg font-semibold text-primary">
+                {squad.name}
+              </h2>
+              <span
+                className="px-2 py-0.5 rounded-full text-[11px] font-mono font-medium"
                 style={{
-                  backgroundColor: `${agent.color}15`,
-                  color: agent.color,
-                  border: `1px solid ${agent.color}30`,
+                  backgroundColor: `${squad.accent}15`,
+                  color: squad.accent,
+                  border: `1px solid ${squad.accent}30`,
                 }}
               >
-                {agent.initials}
-              </div>
-
-              <div className="min-w-0 flex-1">
-                {/* Name */}
-                <h3 className="text-sm font-semibold text-primary group-hover:text-gold-50 transition-colors truncate">
-                  {agent.name}
-                </h3>
-
-                {/* Role */}
-                <p className="text-xs text-secondary mt-0.5 truncate">
-                  {agent.role}
-                </p>
-
-                {/* Squad badge */}
-                <span className="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-gold-300/5 text-gold-400 border border-gold-300/10">
-                  {agent.squadName}
-                </span>
-
-                {/* Description */}
-                <p className="text-xs text-muted mt-2 line-clamp-2 leading-relaxed">
-                  {agent.description}
-                </p>
-              </div>
+                {squad.agents.length} agentes
+              </span>
             </div>
-          </Link>
+
+            {/* Agent cards grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-3">
+              {squad.agents.map((agent) => {
+                const agentPath = `/${squad.slug}:agents:${agent.id}`;
+
+                return (
+                  <Link
+                    key={agent.id}
+                    href={`/agents/${squad.slug}/${agent.id}`}
+                    className="group bg-card border border-subtle rounded-xl p-4 hover:bg-card-hover hover:border-[--hover-border] transition-all duration-300"
+                    style={
+                      {
+                        "--hover-border": `${squad.accent}40`,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <div className="flex items-start gap-3">
+                      {/* Photo or initials */}
+                      {agent.photo ? (
+                        <img
+                          src={agent.photo}
+                          alt={agent.name}
+                          className="w-10 h-10 rounded-full object-cover shrink-0"
+                        />
+                      ) : (
+                        <div
+                          className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-xs font-mono font-semibold"
+                          style={{
+                            backgroundColor: `${agent.color}15`,
+                            color: agent.color,
+                            border: `1px solid ${agent.color}30`,
+                          }}
+                        >
+                          {agent.initials}
+                        </div>
+                      )}
+
+                      <div className="min-w-0 flex-1">
+                        {/* Name */}
+                        <h3 className="text-sm font-semibold text-primary group-hover:text-gold-50 transition-colors truncate">
+                          {agent.name}
+                        </h3>
+
+                        {/* Handle */}
+                        <p className="text-xs text-muted mt-0.5 truncate">
+                          @{agent.id}
+                        </p>
+
+                        {/* Path with copy */}
+                        <div className="flex items-center gap-1.5 mt-2">
+                          <span className="text-[10px] font-mono text-muted truncate">
+                            {agentPath}
+                          </span>
+                          <button
+                            onClick={(e) => handleCopy(e, agentPath)}
+                            className="shrink-0 text-muted hover:text-primary transition-colors"
+                            title="Copiar path"
+                          >
+                            <Copy size={11} />
+                          </button>
+                          {copiedPath === agentPath && (
+                            <span className="text-[10px] text-green-400 font-mono">
+                              ok
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
         ))}
       </div>
-
-      {/* Empty state */}
-      {filtered.length === 0 && (
-        <div className="text-center py-20">
-          <p className="text-muted text-sm">
-            Nenhum agente encontrado para essa busca.
-          </p>
-        </div>
-      )}
     </div>
   );
 }

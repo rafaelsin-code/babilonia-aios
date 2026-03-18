@@ -144,7 +144,7 @@ export default function SquadDetailPage() {
 
       {/* Tab content */}
       <div className="animate-fade-in-up">
-        {activeTab === "agentes" && <AgentesTab agents={squad.agents} />}
+        {activeTab === "agentes" && <AgentesTab agents={squad.agents} squadSlug={slug} />}
         {activeTab === "workflows" && <WorkflowsTab workflows={squad.workflows} onCopy={handleCopy} copiedCommand={copiedCommand} />}
         {activeTab === "tarefas" && <TarefasTab tasks={squad.tasks} onCopy={handleCopy} copiedCommand={copiedCommand} />}
       </div>
@@ -156,15 +156,16 @@ export default function SquadDetailPage() {
    AGENTES TAB
    ============================================================ */
 
-function AgentesTab({ agents }: { agents: Agent[] }) {
+function AgentesTab({ agents, squadSlug }: { agents: Agent[]; squadSlug: string }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       {agents.map((agent, i) => (
-        <div
+        <Link
           key={agent.id}
+          href={`/agents/${squadSlug}/${agent.id}`}
           className={`
             relative group rounded-xl p-5 transition-all duration-300
-            bg-card hover:bg-card-hover border
+            bg-card hover:bg-card-hover border cursor-pointer
             ${agent.isChief ? "border-gold-300/40 shadow-[0_0_20px_rgba(212,175,55,0.08)]" : "border-subtle hover:border-gold-300/15"}
           `}
           style={{ animationDelay: `${i * 50}ms` }}
@@ -181,24 +182,39 @@ function AgentesTab({ agents }: { agents: Agent[] }) {
 
           <div className="flex items-start gap-3.5 mb-3">
             {/* Avatar */}
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ring-2 ring-offset-1 ring-offset-card"
-              style={{
-                backgroundColor: `${agent.color}18`,
-                color: agent.color,
-                outlineColor: `${agent.color}40`,
-              }}
-            >
-              {agent.initials}
-            </div>
+            {agent.photo ? (
+              <img
+                src={agent.photo}
+                alt={agent.name}
+                className="w-10 h-10 rounded-full object-cover shrink-0 ring-2 ring-offset-1 ring-offset-card"
+                style={{ outlineColor: `${agent.color}40` }}
+              />
+            ) : (
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ring-2 ring-offset-1 ring-offset-card"
+                style={{
+                  backgroundColor: `${agent.color}18`,
+                  color: agent.color,
+                  outlineColor: `${agent.color}40`,
+                }}
+              >
+                {agent.initials}
+              </div>
+            )}
             <div className="min-w-0">
               <h3 className="text-sm font-semibold text-gold-50 truncate">{agent.name}</h3>
+              <p className="text-xs text-muted truncate">@{agent.id}</p>
               <p className="text-xs text-secondary truncate">{agent.role}</p>
             </div>
           </div>
 
           <p className="text-xs text-muted leading-relaxed mb-3 line-clamp-3">
             {agent.description}
+          </p>
+
+          {/* Activation path */}
+          <p className="text-[10px] font-mono text-muted/60 mb-2 truncate">
+            /{squadSlug}:agents:{agent.id}
           </p>
 
           {/* Frameworks */}
@@ -212,7 +228,7 @@ function AgentesTab({ agents }: { agents: Agent[] }) {
               </span>
             ))}
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
