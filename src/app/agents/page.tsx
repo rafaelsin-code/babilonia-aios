@@ -1,160 +1,111 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { Copy, Check } from "lucide-react";
 import { squads } from "@/data/squads";
 
 const totalAgents = squads.reduce((acc, s) => acc + s.agents.length, 0);
 const totalSquads = squads.length;
 
 export default function AgentsPage() {
-  const [copiedPath, setCopiedPath] = useState<string | null>(null);
-
-  const handleCopy = (e: React.MouseEvent, path: string) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigator.clipboard.writeText(path);
-    setCopiedPath(path);
-    setTimeout(() => setCopiedPath(null), 1500);
-  };
-
   return (
-    <div className="min-h-screen bg-white p-8 md:p-12" style={{ fontFamily: "'Inter', sans-serif" }}>
-      {/* Header */}
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold text-slate-900">
-          Todos os Agentes
-        </h1>
-        <p className="text-slate-500 mt-2 text-lg">
-          Todos os agentes disponiveis para ativacao
-        </p>
-        <p className="text-slate-400 mt-1 text-sm">
-          {totalAgents} agentes distribuidos em {totalSquads} squads. Clique no card para ver a bio.
-        </p>
-      </div>
+    <>
+      <style jsx global>{`
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
 
-      {/* Squads sections */}
-      <div className="space-y-10">
-        {squads.map((squad) => (
-          <section key={squad.slug}>
-            {/* Squad header */}
-            <div
-              className="flex items-center gap-3 mb-4 pl-4"
-              style={{ borderLeft: `3px solid ${squad.accent}` }}
-            >
-              <h2 className="text-lg font-semibold text-slate-900">
-                {squad.name}
-              </h2>
-              <span
-                className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium"
-                style={{
-                  backgroundColor: `${squad.accent}15`,
-                  color: squad.accent,
-                  border: `1px solid ${squad.accent}30`,
-                }}
-              >
-                {squad.agents.length} agentes
-              </span>
-            </div>
+      <div
+        className="min-h-screen bg-white p-8 md:p-12"
+        style={{ fontFamily: "'Inter', sans-serif" }}
+      >
+        {/* Header */}
+        <div className="mb-12">
+          <h1 className="text-3xl font-bold text-slate-900">
+            Todos os Agentes
+          </h1>
+          <p className="text-slate-400 mt-2 text-sm">
+            {totalAgents} agentes distribuidos em {totalSquads} squads
+          </p>
+        </div>
 
-            {/* Agent cards grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-3">
-              {squad.agents.map((agent) => {
-                const agentPath = `/${squad.slug}:agents:${agent.id}`;
-
-                return (
-                  <Link
-                    key={agent.id}
-                    href={`/agents/${squad.slug}/${agent.id}`}
-                    className="group bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200"
+        {/* Carousel sections per squad */}
+        <div className="space-y-10">
+          {squads.map((squad) => (
+            <section key={squad.slug}>
+              {/* Squad header */}
+              <div className="flex items-center justify-between mb-4">
+                <div
+                  className="flex items-center gap-3 pl-4"
+                  style={{ borderLeft: `4px solid ${squad.accent}` }}
+                >
+                  <h2 className="text-lg font-semibold text-slate-900">
+                    {squad.name}
+                  </h2>
+                  <span
+                    className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium"
+                    style={{
+                      backgroundColor: `${squad.accent}15`,
+                      color: squad.accent,
+                      border: `1px solid ${squad.accent}30`,
+                    }}
                   >
-                    <div className="flex items-start gap-3">
-                      {/* Photo with onError fallback or initials */}
-                      <div className="relative w-10 h-10 shrink-0">
-                        {agent.photo ? (
-                          <>
-                            <img
-                              src={agent.photo}
-                              alt={agent.name}
-                              className="w-10 h-10 rounded-full object-cover"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).style.display = 'none';
-                                (e.target as HTMLImageElement).nextElementSibling!.setAttribute('style', 'display:flex');
-                              }}
-                            />
-                            <div
-                              style={{ display: 'none' }}
-                              className="w-10 h-10 rounded-full items-center justify-center text-xs font-mono font-semibold absolute top-0 left-0"
-                            >
-                              <div
-                                className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-mono font-semibold"
-                                style={{
-                                  backgroundColor: `${agent.color}15`,
-                                  color: agent.color,
-                                  border: `1px solid ${agent.color}30`,
-                                }}
-                              >
-                                {agent.initials}
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                          <div
-                            className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-mono font-semibold"
-                            style={{
-                              backgroundColor: `${agent.color}15`,
-                              color: agent.color,
-                              border: `1px solid ${agent.color}30`,
-                            }}
-                          >
-                            {agent.initials}
-                          </div>
-                        )}
-                      </div>
+                    {squad.agents.length} agentes
+                  </span>
+                </div>
+                <Link
+                  href={`/squads/${squad.slug}`}
+                  className="text-sm text-slate-400 hover:text-slate-600 transition-colors shrink-0"
+                >
+                  Ver todos &rarr;
+                </Link>
+              </div>
 
-                      <div className="min-w-0 flex-1">
-                        {/* Name */}
-                        <h3 className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors truncate">
-                          {agent.name}
-                        </h3>
+              {/* Horizontal scroll carousel */}
+              <div
+                className="hide-scrollbar flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory"
+                style={{ scrollBehavior: "smooth" }}
+              >
+                {squad.agents.map((agent) => {
+                  const fallbackPhoto = `https://ui-avatars.com/api/?name=${encodeURIComponent(agent.name)}&background=${agent.color.slice(1)}&color=fff&size=200&bold=true&format=png`;
 
-                        {/* Handle */}
-                        <p className="text-xs text-slate-400 mt-0.5 truncate">
-                          @{agent.id}
-                        </p>
+                  return (
+                    <Link
+                      key={agent.id}
+                      href={`/agents/${squad.slug}/${agent.id}`}
+                      className="group snap-start flex-shrink-0 w-[180px] bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center"
+                    >
+                      {/* Photo */}
+                      <img
+                        src={agent.photo || fallbackPhoto}
+                        alt={agent.name}
+                        className="w-16 h-16 rounded-xl object-cover mb-3"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = fallbackPhoto;
+                        }}
+                      />
 
-                        {/* Path with copy */}
-                        <div className="flex items-center gap-1.5 mt-2">
-                          <span className="text-[10px] font-mono text-slate-400 truncate">
-                            {agentPath}
-                          </span>
-                          <button
-                            onClick={(e) => handleCopy(e, agentPath)}
-                            className="shrink-0 text-slate-400 hover:text-slate-600 transition-colors"
-                            title="Copiar path"
-                          >
-                            {copiedPath === agentPath ? (
-                              <Check size={11} className="text-green-500" />
-                            ) : (
-                              <Copy size={11} />
-                            )}
-                          </button>
-                          {copiedPath === agentPath && (
-                            <span className="text-[10px] text-green-500 font-mono">
-                              ok
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        ))}
+                      {/* Name */}
+                      <h3 className="font-semibold text-sm text-slate-900 leading-tight">
+                        {agent.name}
+                      </h3>
+
+                      {/* Handle */}
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        @{agent.id}
+                      </p>
+
+                      {/* Role */}
+                      <p className="text-xs text-blue-600 mt-1 line-clamp-1">
+                        {agent.role}
+                      </p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
