@@ -78,13 +78,13 @@ export default function DownloadsPage() {
 
               <div>
                 <h2 className="text-2xl font-bold text-slate-900">
-                  Babilonia AIOS Core
+                  Babilonia AIOS
                 </h2>
                 <p className="text-slate-500 mt-2 text-sm leading-relaxed">
-                  Repositorio completo do framework AIOS. Inclui o core do
-                  sistema, CLI, orquestracao de agentes, sistema de squads,
-                  templates, e toda a infraestrutura para desenvolvimento
-                  orientado por IA.
+                  Repositorio completo do framework Babilonia AIOS. Inclui o
+                  sistema de orquestracao de agentes, CLI, sistema de squads,
+                  templates, workflows e toda a infraestrutura para
+                  desenvolvimento orientado por IA.
                 </p>
               </div>
             </div>
