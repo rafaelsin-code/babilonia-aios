@@ -40,7 +40,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="p-1.5 rounded-md hover:bg-white/5 transition-colors text-muted hover:text-secondary"
+      className="p-1.5 rounded-md hover:bg-white/10 transition-colors text-slate-500 hover:text-green-400"
       title="Copiar comando"
     >
       {copied ? (
@@ -54,33 +54,33 @@ function CopyButton({ text }: { text: string }) {
 
 export default function DownloadsPage() {
   return (
-    <div className="min-h-screen p-8 md:p-12">
+    <div className="min-h-screen bg-white p-8 md:p-12" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Header */}
-      <div className="mb-10 animate-fade-in-up">
-        <h1 className="font-display text-4xl md:text-5xl font-semibold text-gold-50 tracking-wide">
+      <div className="mb-10">
+        <h1 className="text-3xl font-bold text-slate-900">
           Downloads
         </h1>
-        <p className="text-secondary mt-2 text-lg">
+        <p className="text-slate-500 mt-2 text-lg">
           Instale o framework e comece a usar os agentes.
         </p>
       </div>
 
       {/* Main card */}
-      <div className="max-w-3xl animate-fade-in-up delay-100">
-        <div className="bg-card border border-subtle rounded-2xl overflow-hidden">
+      <div className="max-w-3xl">
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
           {/* Card header */}
-          <div className="p-8 border-b border-subtle">
+          <div className="p-8 border-b border-slate-200">
             <div className="flex items-start gap-5">
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-gold-300/10 border border-gold-300/20 flex items-center justify-center shrink-0">
-                <Terminal size={28} className="text-gold-300" />
+              <div className="w-14 h-14 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0">
+                <Terminal size={28} className="text-blue-600" />
               </div>
 
               <div>
-                <h2 className="font-display text-2xl font-semibold text-gold-50">
+                <h2 className="text-2xl font-bold text-slate-900">
                   Babilonia AIOS Core
                 </h2>
-                <p className="text-secondary mt-2 text-sm leading-relaxed">
+                <p className="text-slate-500 mt-2 text-sm leading-relaxed">
                   Repositorio completo do framework AIOS. Inclui o core do
                   sistema, CLI, orquestracao de agentes, sistema de squads,
                   templates, e toda a infraestrutura para desenvolvimento
@@ -92,7 +92,7 @@ export default function DownloadsPage() {
 
           {/* Install steps */}
           <div className="p-8">
-            <h3 className="font-display text-lg font-semibold text-gold-100 mb-6">
+            <h3 className="text-lg font-semibold text-slate-900 mb-6">
               Como instalar
             </h3>
 
@@ -100,16 +100,16 @@ export default function DownloadsPage() {
               {installSteps.map((step) => (
                 <div key={step.number} className="flex gap-4">
                   {/* Step number */}
-                  <div className="w-7 h-7 rounded-full bg-gold-300/15 border border-gold-300/30 flex items-center justify-center shrink-0 mt-0.5">
-                    <span className="text-xs font-mono font-semibold text-gold-200">
+                  <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="text-xs font-mono font-semibold text-white">
                       {step.number}
                     </span>
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm text-primary mb-2">{step.label}</p>
-                    <div className="bg-deep rounded-lg border border-subtle flex items-center justify-between gap-2 px-4 py-3">
-                      <code className="text-sm font-mono text-gold-200 truncate">
+                    <p className="text-sm text-slate-700 mb-2 font-medium">{step.label}</p>
+                    <div className="bg-slate-900 rounded-lg flex items-center justify-between gap-2 px-4 py-3">
+                      <code className="text-sm font-mono text-green-400 truncate">
                         {step.command}
                       </code>
                       <CopyButton text={step.command} />
@@ -121,15 +121,15 @@ export default function DownloadsPage() {
           </div>
 
           {/* Prerequisites */}
-          <div className="mx-8 mb-8 p-5 bg-deep rounded-xl border border-subtle">
-            <h4 className="text-xs font-mono font-semibold text-gold-400 uppercase tracking-wider mb-3">
+          <div className="mx-8 mb-8 p-5 bg-blue-50 rounded-xl border border-blue-200">
+            <h4 className="text-xs font-mono font-semibold text-blue-700 uppercase tracking-wider mb-3">
               Pre-requisitos
             </h4>
             <div className="flex flex-wrap gap-2">
               {prerequisites.map((req) => (
                 <span
                   key={req}
-                  className="px-3 py-1.5 rounded-full text-xs font-medium bg-surface text-secondary border border-subtle"
+                  className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-slate-700 border border-slate-200"
                 >
                   {req}
                 </span>
@@ -140,8 +140,10 @@ export default function DownloadsPage() {
           {/* CTA */}
           <div className="px-8 pb-8">
             <a
-              href="#"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg bg-gold-300/10 border border-gold-300/30 text-gold-200 text-sm font-medium hover:bg-gold-300/20 hover:border-gold-300/40 transition-all duration-200"
+              href="https://github.com/BabiloniaAIOS/aios-core"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
             >
               <ExternalLink size={16} />
               Acessar Repositorio no GitHub

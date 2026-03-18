@@ -2,48 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: #07080C;
-  color: #E8E4DC;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #F8FAFC;
+  color: #334155;
+  font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: rgba(212,175,55,0.25); color: #FFF8E1; }
+::selection { background: rgba(37,99,235,0.15); color: #1E3A8A; }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #07080C; }
-::-webkit-scrollbar-thumb { background: #8B6914; border-radius: 3px; }
-
-.border-subtle { border-color: rgba(212,175,55,0.08); }
-.border-gold-dim { border-color: rgba(212,175,55,0.2); }
-.border-gold-glow { border-color: rgba(212,175,55,0.4); }
-
-.text-primary { color: #E8E4DC; }
-.text-secondary { color: #9B978F; }
-.text-muted { color: #5C5952; }
-
-.bg-gold-subtle { background: rgba(212,175,55,0.03); }
-.bg-gold-faint { background: rgba(212,175,55,0.06); }
-
-.glow-gold { box-shadow: 0 0 30px rgba(212,175,55,0.1); }
-.glow-gold-strong { box-shadow: 0 0 60px rgba(212,175,55,0.15); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F1F5F9; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
-.delay-100 { animation-delay: 0.1s; opacity: 0; }
-.delay-200 { animation-delay: 0.2s; opacity: 0; }
-.delay-300 { animation-delay: 0.3s; opacity: 0; }
-.delay-400 { animation-delay: 0.4s; opacity: 0; }
 
-@keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 10px rgba(212,175,55,0.05); }
-  50% { box-shadow: 0 0 20px rgba(212,175,55,0.15); }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.4s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+.animate-slide-in { animation: slideInLeft 0.3s ease-out forwards; }
+
+.delay-75 { animation-delay: 75ms; opacity: 0; }
+.delay-150 { animation-delay: 150ms; opacity: 0; }
+.delay-225 { animation-delay: 225ms; opacity: 0; }
+.delay-300 { animation-delay: 300ms; opacity: 0; }

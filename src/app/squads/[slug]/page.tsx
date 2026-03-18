@@ -13,7 +13,6 @@ import {
   Clock,
   ArrowRight,
   Crown,
-  Terminal,
 } from "lucide-react";
 import { getSquadBySlug } from "@/data/squads";
 import type { Agent, Task, Workflow } from "@/data/squads";
@@ -38,88 +37,115 @@ export default function SquadDetailPage() {
     setTimeout(() => setCopiedCommand(null), 2000);
   }
 
-  const tabs: { key: Tab; label: string; count: number; icon: React.ReactNode }[] = [
-    { key: "agentes", label: "Agentes", count: squad.agents.length, icon: <Users size={16} /> },
-    { key: "workflows", label: "Workflows", count: squad.workflows.length, icon: <GitBranch size={16} /> },
-    { key: "tarefas", label: "Tarefas", count: squad.tasks.length, icon: <ListChecks size={16} /> },
+  const tabs: {
+    key: Tab;
+    label: string;
+    count: number;
+    icon: React.ReactNode;
+  }[] = [
+    {
+      key: "agentes",
+      label: "Agentes",
+      count: squad.agents.length,
+      icon: <Users size={16} />,
+    },
+    {
+      key: "workflows",
+      label: "Workflows",
+      count: squad.workflows.length,
+      icon: <GitBranch size={16} />,
+    },
+    {
+      key: "tarefas",
+      label: "Tarefas",
+      count: squad.tasks.length,
+      icon: <ListChecks size={16} />,
+    },
   ];
 
   return (
-    <div className="min-h-screen p-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-white p-8 max-w-7xl mx-auto">
       {/* Back link */}
       <Link
         href="/squads"
-        className="inline-flex items-center gap-2 text-sm text-gold-500 hover:text-gold-300 transition-colors mb-8 group"
+        className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors mb-8 group"
       >
-        <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+        <ArrowLeft
+          size={16}
+          className="group-hover:-translate-x-1 transition-transform"
+        />
         Voltar para squads
       </Link>
 
       {/* Header */}
-      <header className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10 animate-fade-in-up">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-3">
-            <h1 className="text-3xl font-display font-bold text-gold-50 tracking-wide">
-              {squad.name}
-            </h1>
-            <span className="px-2.5 py-0.5 text-xs font-mono font-medium rounded-full bg-gold-300/10 text-gold-300 border border-gold-300/20">
-              {squad.version}
-            </span>
-          </div>
-          <p className="text-secondary text-sm leading-relaxed max-w-2xl mb-4">
-            {squad.description}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {squad.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-white/[0.04] text-muted border border-white/[0.06] uppercase tracking-wider"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Stats boxes */}
-        <div className="flex gap-4 shrink-0">
-          {[
-            { label: "AGENTES", value: squad.agents.length, icon: <Users size={18} className="text-gold-300" /> },
-            { label: "TAREFAS", value: squad.tasks.length, icon: <ListChecks size={18} className="text-gold-300" /> },
-            { label: "WORKFLOWS", value: squad.workflows.length, icon: <GitBranch size={18} className="text-gold-300" /> },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="flex flex-col items-center justify-center px-6 py-4 rounded-xl bg-surface border border-subtle min-w-[100px]"
-            >
-              <div className="flex items-center gap-2 mb-1">
-                {stat.icon}
-                <span className="text-2xl font-display font-bold text-gold-50">
-                  {stat.value}
-                </span>
-              </div>
-              <span className="text-[10px] font-mono text-muted tracking-[0.2em] uppercase">
-                {stat.label}
+      <header className="mb-10">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+          <div className="flex-1 min-w-0">
+            {/* Name + Version */}
+            <div className="flex items-center gap-3 mb-2">
+              <h1 className="text-3xl font-bold text-text-heading tracking-tight">
+                {squad.name}
+              </h1>
+              <span className="bg-slate-100 text-slate-500 text-xs font-mono rounded px-2 py-0.5">
+                {squad.version}
               </span>
             </div>
-          ))}
+
+            {/* Description */}
+            <p className="text-text-body text-sm leading-relaxed max-w-2xl mb-5">
+              {squad.description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2">
+              {squad.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-blue-50 text-blue-700 text-xs rounded-full px-2.5 py-0.5 font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Stats cards */}
+          <div className="flex gap-4 shrink-0">
+            {[
+              { label: "AGENTES", value: squad.agents.length },
+              { label: "TAREFAS", value: squad.tasks.length },
+              { label: "WORKFLOWS", value: squad.workflows.length },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="flex flex-col items-center justify-center px-6 py-4 rounded-lg bg-white border border-slate-200 min-w-[110px] shadow-sm"
+              >
+                <span className="text-2xl font-bold text-blue-600">
+                  {stat.value}
+                </span>
+                <span className="text-xs uppercase text-text-muted tracking-wider mt-1 font-medium">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </header>
 
       {/* Tabs */}
-      <div className="border-b border-subtle mb-8">
-        <nav className="flex gap-1">
+      <div className="border-b border-slate-200 mb-8">
+        <nav className="flex gap-0">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
               className={`
                 flex items-center gap-2 px-5 py-3 text-sm font-medium transition-all duration-200
-                border-b-2 -mb-[1px]
+                border-b-2 -mb-[1px] cursor-pointer
                 ${
                   activeTab === tab.key
-                    ? "border-gold-300 text-gold-50"
-                    : "border-transparent text-muted hover:text-secondary"
+                    ? "border-blue-600 text-blue-600"
+                    : "border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300"
                 }
               `}
             >
@@ -130,8 +156,8 @@ export default function SquadDetailPage() {
                   ml-1 px-1.5 py-0.5 text-[10px] font-mono rounded-md
                   ${
                     activeTab === tab.key
-                      ? "bg-gold-300/15 text-gold-300"
-                      : "bg-white/[0.04] text-muted"
+                      ? "bg-blue-50 text-blue-600"
+                      : "bg-slate-100 text-slate-500"
                   }
                 `}
               >
@@ -143,10 +169,24 @@ export default function SquadDetailPage() {
       </div>
 
       {/* Tab content */}
-      <div className="animate-fade-in-up">
-        {activeTab === "agentes" && <AgentesTab agents={squad.agents} squadSlug={slug} />}
-        {activeTab === "workflows" && <WorkflowsTab workflows={squad.workflows} onCopy={handleCopy} copiedCommand={copiedCommand} />}
-        {activeTab === "tarefas" && <TarefasTab tasks={squad.tasks} onCopy={handleCopy} copiedCommand={copiedCommand} />}
+      <div>
+        {activeTab === "agentes" && (
+          <AgentesTab agents={squad.agents} squadSlug={slug} />
+        )}
+        {activeTab === "workflows" && (
+          <WorkflowsTab
+            workflows={squad.workflows}
+            onCopy={handleCopy}
+            copiedCommand={copiedCommand}
+          />
+        )}
+        {activeTab === "tarefas" && (
+          <TarefasTab
+            tasks={squad.tasks}
+            onCopy={handleCopy}
+            copiedCommand={copiedCommand}
+          />
+        )}
       </div>
     </div>
   );
@@ -156,27 +196,26 @@ export default function SquadDetailPage() {
    AGENTES TAB
    ============================================================ */
 
-function AgentesTab({ agents, squadSlug }: { agents: Agent[]; squadSlug: string }) {
+function AgentesTab({
+  agents,
+  squadSlug,
+}: {
+  agents: Agent[];
+  squadSlug: string;
+}) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-      {agents.map((agent, i) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      {agents.map((agent) => (
         <Link
           key={agent.id}
           href={`/agents/${squadSlug}/${agent.id}`}
-          className={`
-            relative group rounded-xl p-5 transition-all duration-300
-            bg-card hover:bg-card-hover border cursor-pointer
-            ${agent.isChief ? "border-gold-300/40 shadow-[0_0_20px_rgba(212,175,55,0.08)]" : "border-subtle hover:border-gold-300/15"}
-          `}
-          style={{ animationDelay: `${i * 50}ms` }}
+          className="relative group rounded-xl bg-white border border-slate-200 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:border-slate-300 p-5 transition-all duration-200 cursor-pointer"
         >
           {/* Chief badge */}
           {agent.isChief && (
-            <div className="absolute -top-2.5 right-4 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gold-300/15 border border-gold-300/30">
-              <Crown size={10} className="text-gold-300" />
-              <span className="text-[9px] font-mono text-gold-300 uppercase tracking-wider font-medium">
-                Chief
-              </span>
+            <div className="absolute -top-2.5 right-4 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-semibold uppercase tracking-wider">
+              <Crown size={10} />
+              Chief
             </div>
           )}
 
@@ -186,34 +225,37 @@ function AgentesTab({ agents, squadSlug }: { agents: Agent[]; squadSlug: string 
               <img
                 src={agent.photo}
                 alt={agent.name}
-                className="w-10 h-10 rounded-full object-cover shrink-0 ring-2 ring-offset-1 ring-offset-card"
-                style={{ outlineColor: `${agent.color}40` }}
+                className="w-[44px] h-[44px] rounded-full object-cover shrink-0"
               />
             ) : (
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ring-2 ring-offset-1 ring-offset-card"
+                className="w-[44px] h-[44px] rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                 style={{
-                  backgroundColor: `${agent.color}18`,
+                  backgroundColor: `${agent.color}1A`,
                   color: agent.color,
-                  outlineColor: `${agent.color}40`,
                 }}
               >
                 {agent.initials}
               </div>
             )}
-            <div className="min-w-0">
-              <h3 className="text-sm font-semibold text-gold-50 truncate">{agent.name}</h3>
-              <p className="text-xs text-muted truncate">@{agent.id}</p>
-              <p className="text-xs text-secondary truncate">{agent.role}</p>
+
+            <div className="min-w-0 flex-1">
+              <h3 className="text-sm font-semibold text-text-heading truncate">
+                {agent.name}
+              </h3>
+              <p className="text-xs text-text-muted truncate">@{agent.id}</p>
+              <p className="text-sm text-text-body truncate mt-0.5">
+                {agent.role}
+              </p>
             </div>
           </div>
 
-          <p className="text-xs text-muted leading-relaxed mb-3 line-clamp-3">
+          <p className="text-xs text-text-muted leading-relaxed mb-3 line-clamp-2">
             {agent.description}
           </p>
 
           {/* Activation path */}
-          <p className="text-[10px] font-mono text-muted/60 mb-2 truncate">
+          <p className="font-mono text-[10px] text-text-muted mb-3 truncate">
             /{squadSlug}:agents:{agent.id}
           </p>
 
@@ -222,7 +264,7 @@ function AgentesTab({ agents, squadSlug }: { agents: Agent[]; squadSlug: string 
             {agent.frameworks.map((fw) => (
               <span
                 key={fw}
-                className="px-2 py-0.5 text-[10px] font-mono rounded bg-white/[0.04] text-muted border border-white/[0.06] truncate max-w-[140px]"
+                className="bg-slate-100 text-slate-600 text-[10px] font-mono rounded px-1.5 py-0.5 truncate max-w-[140px]"
               >
                 {fw}
               </span>
@@ -252,32 +294,33 @@ function WorkflowsTab({
       {workflows.map((wf) => (
         <div
           key={wf.id}
-          className="rounded-xl bg-card border border-subtle p-6 hover:border-gold-300/15 transition-colors"
+          className="rounded-xl bg-white border border-slate-200 p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-shadow duration-200"
         >
           {/* Workflow header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
             <div className="flex items-center gap-3">
-              <h3 className="text-base font-semibold text-gold-50">{wf.name}</h3>
+              <h3 className="text-base font-semibold text-text-heading">
+                {wf.name}
+              </h3>
               <button
                 onClick={() => onCopy(wf.command)}
-                className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono rounded-md bg-white/[0.04] text-secondary border border-white/[0.06] hover:bg-white/[0.08] hover:text-gold-50 transition-colors"
+                className="flex items-center gap-1.5 font-mono text-blue-600 bg-blue-50 rounded px-2 py-1 text-xs hover:bg-blue-100 transition-colors cursor-pointer"
               >
-                <Terminal size={11} />
                 {wf.command}
                 {copiedCommand === wf.command ? (
-                  <Check size={11} className="text-green-400 ml-1" />
+                  <Check size={12} className="text-emerald-500 ml-1" />
                 ) : (
-                  <Copy size={11} className="ml-1 opacity-40" />
+                  <Copy size={12} className="ml-1 opacity-50" />
                 )}
               </button>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-muted">
+            <div className="flex items-center gap-1.5 text-xs text-text-muted bg-slate-50 rounded-full px-3 py-1">
               <Clock size={13} />
               {wf.duration}
             </div>
           </div>
 
-          <p className="text-xs text-secondary leading-relaxed mb-5">
+          <p className="text-sm text-text-body leading-relaxed mb-6">
             {wf.description}
           </p>
 
@@ -286,25 +329,27 @@ function WorkflowsTab({
             {wf.steps.map((step, i) => (
               <div key={i} className="flex items-center shrink-0">
                 {/* Step node */}
-                <div className="flex flex-col items-center gap-1.5 px-4 py-3 rounded-lg bg-surface border border-subtle min-w-[150px]">
-                  <div className="w-8 h-8 rounded-full bg-gold-300/10 border border-gold-300/25 flex items-center justify-center">
-                    <span className="text-[10px] font-mono font-bold text-gold-300">
+                <div className="flex flex-col items-center gap-2 px-4 py-3.5 rounded-lg bg-white border border-slate-200 min-w-[160px] shadow-sm">
+                  <div className="w-7 h-7 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center">
+                    <span className="text-[10px] font-mono font-bold text-blue-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <span className="text-xs font-semibold text-gold-50 text-center leading-tight">
+                  <span className="text-xs font-semibold text-text-heading text-center leading-tight">
                     {step.agent}
                   </span>
-                  <span className="text-[10px] font-mono text-secondary">{step.action}</span>
-                  <span className="px-2 py-0.5 text-[9px] font-mono rounded bg-gold-300/8 text-gold-400 border border-gold-300/15">
+                  <span className="text-[10px] font-mono text-text-body">
+                    {step.action}
+                  </span>
+                  <span className="px-2 py-0.5 text-[9px] font-mono rounded bg-slate-50 text-slate-600 border border-slate-200">
                     {step.output}
                   </span>
                 </div>
 
                 {/* Arrow connector */}
                 {i < wf.steps.length - 1 && (
-                  <div className="flex items-center px-1 text-gold-500/40">
-                    <div className="w-6 h-px bg-gold-500/20" />
+                  <div className="flex items-center px-1 text-blue-400">
+                    <div className="w-6 h-px bg-blue-300" />
                     <ArrowRight size={14} />
                   </div>
                 )}
@@ -331,33 +376,33 @@ function TarefasTab({
   copiedCommand: string | null;
 }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="rounded-xl bg-card border border-subtle p-5 hover:border-gold-300/15 transition-colors group"
+          className="rounded-xl bg-white border border-slate-200 p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:border-slate-300 transition-all duration-200 group"
         >
-          <h3 className="text-sm font-semibold text-gold-50 mb-1">{task.name}</h3>
-          <p className="text-[11px] font-mono text-muted mb-3">{task.filename}</p>
+          <h3 className="text-sm font-semibold text-text-heading mb-1">
+            {task.name}
+          </h3>
+          <p className="font-mono text-xs text-text-muted mb-4">
+            {task.filename}
+          </p>
 
           <button
             onClick={() => onCopy(task.command)}
-            className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-surface border border-subtle hover:bg-card-hover hover:border-gold-300/20 transition-all"
+            className="w-full flex items-center justify-between font-mono text-blue-600 bg-blue-50 rounded px-3 py-2.5 text-xs hover:bg-blue-100 transition-colors cursor-pointer"
           >
-            <span className="flex items-center gap-2 text-xs font-mono text-secondary">
-              <Terminal size={13} className="text-gold-500" />
-              {task.command}
-            </span>
+            <span>{task.command}</span>
             {copiedCommand === task.command ? (
-              <Check size={14} className="text-green-400" />
+              <Check size={14} className="text-emerald-500" />
             ) : (
-              <Copy size={14} className="text-muted opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Copy
+                size={14}
+                className="opacity-0 group-hover:opacity-60 transition-opacity"
+              />
             )}
           </button>
-
-          <p className="text-[10px] text-muted mt-2.5 leading-relaxed">
-            Use <span className="font-mono text-secondary">{task.command}</span> apos ativar um agente.
-          </p>
         </div>
       ))}
     </div>

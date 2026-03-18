@@ -15,26 +15,21 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed top-0 left-0 h-screen w-60 bg-deep border-r border-subtle flex flex-col z-50">
+    <aside className="fixed top-0 left-0 w-[240px] h-screen bg-[#0F172A] border-r border-[#1E293B] flex flex-col overflow-y-auto z-50">
       {/* Logo */}
       <div className="px-5 py-6 flex items-center gap-3">
-        <div className="w-10 h-10 rotate-45 bg-gold-300/10 border border-gold-300/40 flex items-center justify-center">
-          <span className="text-gold-300 font-display font-bold text-lg -rotate-45">
-            B
-          </span>
+        <div className="w-8 h-8 bg-[#2563EB] rounded-lg flex items-center justify-center flex-shrink-0">
+          <span className="text-white font-semibold text-sm">B</span>
         </div>
         <div>
-          <h1 className="text-sm font-display font-semibold text-gold-50 tracking-wide leading-tight">
+          <h1 className="text-sm font-semibold text-white leading-tight">
             Babilonia AIOS
           </h1>
-          <p className="text-[10px] text-gold-500 tracking-widest uppercase leading-tight mt-0.5">
+          <p className="text-[10px] text-slate-400 tracking-wider uppercase leading-tight mt-0.5">
             As maiores mentes para voce
           </p>
         </div>
       </div>
-
-      {/* Divider */}
-      <div className="mx-5 border-t border-subtle" />
 
       {/* Navigation */}
       <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
@@ -47,32 +42,29 @@ export default function Sidebar() {
               key={href}
               href={href}
               className={`
-                flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
-                transition-all duration-200 group
+                flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
                 ${
                   isActive
-                    ? "bg-gold-300/10 text-gold-50 border border-gold-300/20"
-                    : "text-secondary hover:text-primary hover:bg-white/[0.03] border border-transparent"
+                    ? "bg-blue-600/20 text-blue-400 font-medium"
+                    : "text-slate-400 hover:text-white hover:bg-white/5"
                 }
               `}
             >
-              <Icon
-                size={18}
-                className={`transition-colors ${
-                  isActive
-                    ? "text-gold-300"
-                    : "text-muted group-hover:text-secondary"
-                }`}
-              />
+              <Icon size={18} />
               {label}
             </Link>
           );
         })}
+
+        {/* Stats */}
+        <div className="mt-6 px-3">
+          <p className="text-xs text-slate-500">12 squads · 140 agentes</p>
+        </div>
       </nav>
 
       {/* Footer */}
-      <div className="px-5 py-4 border-t border-subtle">
-        <p className="text-[10px] text-muted text-center tracking-wide">
+      <div className="mt-auto px-5 py-4">
+        <p className="text-[11px] text-slate-600">
           Babilonia AIOS by Rafael Pinheiro
         </p>
       </div>

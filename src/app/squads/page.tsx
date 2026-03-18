@@ -10,7 +10,7 @@ import {
   Cog,
   Users,
   ListChecks,
-  Workflow,
+  GitBranch,
   Layers,
   Brain,
   Rocket,
@@ -53,27 +53,20 @@ export default function SquadsPage() {
   const stats = getTotalStats();
 
   return (
-    <div className="min-h-screen px-10 py-12">
+    <div className="min-h-screen bg-[#F8FAFC] px-6 md:px-10 py-12 font-sans">
       {/* ── Header ── */}
-      <section className="animate-fade-in-up mb-10">
-        <div className="flex items-center gap-2 mb-4">
-          <Layers size={16} className="text-gold-300" />
-          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-gold-400">
-            Catalogo de Squads
-          </span>
-        </div>
-
-        <h1 className="font-display text-4xl font-bold text-gold-50 leading-tight">
+      <section className="animate-fade-in-up max-w-6xl mx-auto mb-10">
+        <h1 className="text-4xl font-bold text-text-heading tracking-tight">
           Squads
         </h1>
-        <p className="text-secondary text-[15px] mt-2">
+        <p className="text-text-body text-base mt-2">
           {stats.squads} squads especializados com {stats.agents} agentes,{" "}
           {stats.tasks} tasks e {stats.workflows} workflows prontos para uso.
         </p>
       </section>
 
       {/* ── Grid ── */}
-      <section className="animate-fade-in-up delay-100 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      <section className="animate-fade-in-up delay-100 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {squads.map((squad) => {
           const IconComponent = iconMap[squad.icon] || Brain;
 
@@ -81,50 +74,43 @@ export default function SquadsPage() {
             <Link
               key={squad.slug}
               href={`/squads/${squad.slug}`}
-              className="group bg-card border border-subtle rounded-xl p-6 hover:border-gold-dim hover:-translate-y-0.5 transition-all duration-300 flex flex-col"
+              className="group bg-white border border-border-default rounded-xl shadow-card p-6 hover:shadow-card-hover hover:-translate-y-[1px] hover:border-blue-200 transition-all duration-300 flex flex-col"
             >
-              {/* Icon + Name */}
+              {/* Icon + Name + Version */}
               <div className="flex items-start gap-4 mb-4">
-                <div
-                  className="w-11 h-11 rounded-lg flex items-center justify-center shrink-0 border transition-colors duration-300"
-                  style={{
-                    backgroundColor: `${squad.accent}10`,
-                    borderColor: `${squad.accent}30`,
-                  }}
-                >
+                <div className="w-11 h-11 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
                   <IconComponent
                     size={20}
-                    className="opacity-80 group-hover:opacity-100 transition-opacity"
-                    style={{ color: squad.accent }}
+                    className="text-blue-600 opacity-80 group-hover:opacity-100 transition-opacity"
                   />
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-display text-lg font-semibold text-gold-50 group-hover:text-gold-200 transition-colors leading-snug">
+                  <h3 className="text-lg font-semibold text-text-heading group-hover:text-blue-600 transition-colors leading-snug">
                     {squad.name}
                   </h3>
-                  <span className="text-[10px] font-mono text-muted tracking-wider">
+                  <span className="text-xs bg-slate-100 text-slate-500 rounded px-2 py-0.5 inline-block mt-1">
                     {squad.version}
                   </span>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-secondary text-sm leading-relaxed mb-5 line-clamp-3 flex-1">
+              <p className="text-sm text-text-body leading-relaxed mb-5 line-clamp-3 flex-1">
                 {squad.description}
               </p>
 
-              {/* Badges */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted">
-                  <Users size={13} className="text-gold-400/60" />
+              {/* Stats row */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-1.5 text-xs text-text-muted">
+                  <Users size={13} className="text-slate-400" />
                   <span>{squad.agents.length} agentes</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted">
-                  <ListChecks size={13} className="text-gold-400/60" />
+                <div className="flex items-center gap-1.5 text-xs text-text-muted">
+                  <ListChecks size={13} className="text-slate-400" />
                   <span>{squad.tasks.length} tasks</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted">
-                  <Workflow size={13} className="text-gold-400/60" />
+                <div className="flex items-center gap-1.5 text-xs text-text-muted">
+                  <GitBranch size={13} className="text-slate-400" />
                   <span>{squad.workflows.length} workflows</span>
                 </div>
               </div>
@@ -134,13 +120,13 @@ export default function SquadsPage() {
                 {squad.tags.slice(0, 4).map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-gold-300/5 border border-gold-300/10 text-gold-400/70 tracking-wide"
+                    className="text-xs bg-blue-50 text-blue-700 rounded-full px-2.5 py-0.5"
                   >
                     {tag}
                   </span>
                 ))}
                 {squad.tags.length > 4 && (
-                  <span className="text-[10px] font-mono px-2 py-0.5 text-muted">
+                  <span className="text-xs text-text-muted px-1">
                     +{squad.tags.length - 4}
                   </span>
                 )}
