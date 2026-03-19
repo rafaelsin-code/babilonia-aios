@@ -1,7 +1,9 @@
 {
-  "name": "pantheon-platform",
-  "version": "0.1.0",
-  "private": true,
+  "name": "babilonia-aios",
+  "version": "1.0.0",
+  "description": "Babilonia AIOS — Plataforma de Agentes IA Especializados. 140 agentes, 12 squads, 23 workflows.",
+  "author": "Rafael Pinheiro",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
