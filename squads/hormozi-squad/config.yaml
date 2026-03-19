@@ -1,0 +1,51 @@
+squad:
+  id: hormozi-squad
+  name: Hormozi Squad
+  version: "1.0.0"
+  description: |
+    Esquadrão baseado inteiramente nos frameworks, livros e filosofia de
+    Alex Hormozi. Cada agente é especialista em uma dimensão diferente
+    do universo Hormozi — desde criação de ofertas irresistíveis até
+    geração de leads, precificação, copy, fechamento, hooks e conteúdo.
+    Use quando precisar construir ou otimizar qualquer parte do funil
+    de vendas com a mentalidade Hormozi.
+
+  entry_agent: hormozi-chief
+
+  agents:
+    - id: hormozi-chief
+      file: agents/hormozi-chief.md
+      tier: 0
+    - id: hormozi-offers
+      file: agents/hormozi-offers.md
+      tier: 1
+    - id: hormozi-leads
+      file: agents/hormozi-leads.md
+      tier: 1
+    - id: hormozi-pricing
+      file: agents/hormozi-pricing.md
+      tier: 1
+    - id: hormozi-copy
+      file: agents/hormozi-copy.md
+      tier: 2
+    - id: hormozi-closer
+      file: agents/hormozi-closer.md
+      tier: 2
+    - id: hormozi-hooks
+      file: agents/hormozi-hooks.md
+      tier: 2
+    - id: hormozi-content
+      file: agents/hormozi-content.md
+      tier: 2
+
+  tags:
+    - offers
+    - leads
+    - pricing
+    - sales
+    - closing
+    - content
+    - hooks
+    - hormozi
+    - gym-launch
+    - acquisition

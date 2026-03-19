@@ -1,0 +1,93 @@
+workflow:
+  id: wf-brand-narrative
+  name: Brand Narrative — Construção de Narrativa Completa
+  version: "1.0.0"
+  description: |
+    Workflow para criar o portfólio narrativo completo de uma marca:
+    origin story, value story, purpose story, customer story e
+    brand narrative unificada. Combina Campbell (arquétipo), McKee
+    (estrutura), Hall (business storytelling) e Duarte (apresentação).
+  trigger: "*brand-story"
+  entry_agent: story-chief
+  estimated_duration: "1.5-2 hours"
+
+phases:
+  - id: phase_1_excavation
+    name: Narrative Excavation
+    agent: story-chief
+    task: brand-story.md
+    description: |
+      Story Chief conduz escavação profunda: entrevista fundador,
+      coleta histórias de clientes, mapeia momentos de transformação,
+      e identifica a tensão central que dá vida à narrativa.
+    outputs:
+      - raw_stories: "list"
+      - central_tension: "string"
+      - emotional_core: "string"
+
+  - id: phase_2_origin
+    name: Origin Story — A Jornada do Fundador
+    agent: joseph-campbell
+    task: origin-story.md
+    depends_on: [phase_1_excavation]
+    description: |
+      Joseph Campbell mapeia a jornada do fundador nos 12 estágios do
+      Monomito. Identifica o chamado, a provação suprema e o elixir
+      trazido de volta. Robert McKee garante estrutura dramática sólida.
+    outputs:
+      - origin_story_long: "string"
+      - origin_story_short: "string"
+      - heros_journey_map: "object"
+
+  - id: phase_3_stories
+    name: 4 Essential Stories
+    agent: kindra-hall
+    task: brand-story.md
+    depends_on: [phase_1_excavation]
+    description: |
+      Kindra Hall estrutura as 4 Essential Stories: Founder Story (já criada
+      na fase anterior, aqui refinada), Value Story (resultado tangível),
+      Purpose Story (missão maior), Customer Story (transformação real).
+      Cada uma usa Normal → Explosion → New Normal.
+    outputs:
+      - value_story: "string"
+      - purpose_story: "string"
+      - customer_story: "string"
+      - story_bank: "list"
+
+  - id: phase_4_structure
+    name: Narrative Structure e Polish
+    agent: robert-mckee
+    task: brand-story.md
+    depends_on: [phase_2_origin, phase_3_stories]
+    description: |
+      Robert McKee revisa todas as histórias para garantir estrutura
+      dramática, controlling idea clara, gap emocional e progressão
+      de complicações. Elimina fraquezas narrativas.
+    outputs:
+      - controlling_idea: "string"
+      - polished_stories: "list"
+      - narrative_notes: "list"
+
+  - id: phase_5_unification
+    name: Brand Narrative Unificada
+    agent: story-chief
+    task: brand-story.md
+    depends_on: [phase_4_structure]
+    description: |
+      Story Chief unifica todas as histórias em uma Brand Narrative
+      coesa, cria versões para diferentes contextos (site, pitch, social,
+      entrevistas), e define o Story Bank com guidelines de uso.
+    outputs:
+      - unified_narrative: "string"
+      - elevator_pitch: "string"
+      - story_bank_document: "object"
+      - usage_guidelines: "object"
+
+completion_criteria:
+  - "Origin story criada em versão longa e curta"
+  - "4 Essential Stories documentadas com estrutura Normal→Explosion→New Normal"
+  - "Controlling idea definida e consistente em todas as histórias"
+  - "Brand Narrative unificada de 500 palavras"
+  - "Story Bank organizado com guidelines de uso por canal"
+  - "Elevator pitch de 30 segundos pronto"

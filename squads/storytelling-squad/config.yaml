@@ -1,0 +1,45 @@
+squad:
+  id: storytelling-squad
+  name: Storytelling Squad
+  version: "1.0.0"
+  description: |
+    Esquadrão de narrativa e storytelling estratégico. Liderado pelo Story Chief,
+    com os maiores mestres da narrativa mundial — de Joseph Campbell (a jornada do herói)
+    a Robert McKee (estrutura narrativa), Nancy Duarte (apresentações), Oren Klaff (pitch),
+    Kindra Hall (strategic storytelling) e Carmine Gallo (comunicação de impacto).
+    Use este squad para criar narrativas de marca, pitch decks, origin stories,
+    e qualquer comunicação que precise mover pessoas emocionalmente.
+
+  entry_agent: story-chief
+
+  agents:
+    - id: story-chief
+      file: agents/story-chief.md
+      tier: 0
+    - id: joseph-campbell
+      file: agents/joseph-campbell.md
+      tier: 1
+    - id: robert-mckee
+      file: agents/robert-mckee.md
+      tier: 1
+    - id: nancy-duarte
+      file: agents/nancy-duarte.md
+      tier: 1
+    - id: oren-klaff
+      file: agents/oren-klaff.md
+      tier: 1
+    - id: kindra-hall
+      file: agents/kindra-hall.md
+      tier: 1
+    - id: carmine-gallo
+      file: agents/carmine-gallo.md
+      tier: 1
+
+  tags:
+    - storytelling
+    - narrative
+    - pitch
+    - presentations
+    - brand-story
+    - origin-story
+    - communication

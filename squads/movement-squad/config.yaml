@@ -1,0 +1,39 @@
+squad:
+  id: movement-squad
+  name: Movement Squad
+  version: "1.0.0"
+  description: |
+    Esquadrão de construção de movimentos, manifestos e comunidades com propósito.
+    Liderado pelo Movement Chief, com Identity Architect (construção de identidade coletiva),
+    Manifesto Writer (escrita de manifestos que mobilizam), Growth Catalyst (crescimento orgânico
+    de movimentos) e Community Weaver (tecedura de laços comunitários).
+    Use este squad para transformar uma marca em um movimento, escrever manifestos,
+    criar identidade de grupo e estratégias de mobilização.
+
+  entry_agent: movement-chief
+
+  agents:
+    - id: movement-chief
+      file: agents/movement-chief.md
+      tier: 0
+    - id: identity-architect
+      file: agents/identity-architect.md
+      tier: 1
+    - id: manifesto-writer
+      file: agents/manifesto-writer.md
+      tier: 1
+    - id: growth-catalyst
+      file: agents/growth-catalyst.md
+      tier: 1
+    - id: community-weaver
+      file: agents/community-weaver.md
+      tier: 1
+
+  tags:
+    - movement
+    - manifesto
+    - community
+    - identity
+    - mobilization
+    - culture
+    - purpose

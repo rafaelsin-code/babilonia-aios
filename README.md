@@ -116,21 +116,51 @@ Acoes concretas com:
 
 ```
 babilonia-aios/
-├── src/
-│   ├── app/                    # Paginas (App Router)
-│   │   ├── page.tsx            # Home
-│   │   ├── squads/             # Listagem e detalhe de squads
-│   │   ├── agents/             # Listagem e bio de agentes
-│   │   └── downloads/          # Pagina de instalacao
-│   ├── components/             # Componentes reutilizaveis
-│   │   └── Sidebar.tsx         # Navegacao lateral
-│   └── data/                   # Dados dos squads e agentes
-│       └── squads.ts           # 140 agentes, 12 squads
-├── public/                     # Assets estaticos
-├── tailwind.config.ts          # Configuracao do Tailwind
-├── next.config.mjs             # Configuracao do Next.js
-└── package.json
+├── squads/                          # CORE — Definicoes dos squads
+│   ├── advisory-board/
+│   │   ├── config.yaml              # Configuracao do squad
+│   │   ├── agents/                  # Agentes (system prompts completos)
+│   │   │   ├── board-chair.md
+│   │   │   ├── ray-dalio.md
+│   │   │   ├── charlie-munger.md
+│   │   │   └── ...
+│   │   ├── tasks/                   # Tasks executaveis
+│   │   │   ├── convene-board.md
+│   │   │   └── ...
+│   │   └── workflows/               # Workflows orquestrados
+│   │       ├── wf-board-meeting.yaml
+│   │       └── ...
+│   ├── copy-squad/                  # 23 copywriters lendarios
+│   ├── hormozi-squad/               # Frameworks Alex Hormozi
+│   ├── brand-squad/                 # Estrategia de marca
+│   ├── traffic-masters/             # Trafego pago
+│   ├── c-level-squad/               # C-suite virtual
+│   ├── design-squad/                # Design operations
+│   ├── data-squad/                  # Growth e analytics
+│   ├── storytelling-squad/          # Narrativa e pitching
+│   ├── cybersecurity-squad/         # Seguranca ofensiva e defensiva
+│   ├── movement-squad/              # Construcao de movimentos
+│   └── product-squad/               # Produto, SEO, financas
+│
+├── src/                             # WEBAPP — Interface visual
+│   ├── app/                         # Paginas (Next.js App Router)
+│   ├── components/                  # Componentes reutilizaveis
+│   └── data/                        # Dados compilados dos squads
+│
+├── tailwind.config.ts
+├── next.config.mjs
+├── package.json
+├── LICENSE
+└── README.md
 ```
+
+### Usando os agentes diretamente
+
+Cada arquivo `.md` em `squads/*/agents/` e um **system prompt completo** pronto para usar com qualquer LLM (Claude, GPT, etc.). Basta copiar o conteudo e colar como system prompt.
+
+Cada arquivo `.md` em `squads/*/tasks/` define uma **task executavel** com inputs, steps e outputs esperados.
+
+Cada `.yaml` em `squads/*/workflows/` define um **pipeline multi-agente** com fases, dependencias e criterios de conclusao.
 
 ## Deploy
 

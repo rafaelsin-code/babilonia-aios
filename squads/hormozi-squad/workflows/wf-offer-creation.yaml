@@ -1,0 +1,90 @@
+workflow:
+  id: wf-offer-creation
+  name: Grand Slam Offer Creation — Oferta Irresistível Hormozi
+  version: "1.0.0"
+  description: |
+    Workflow completo para criar uma Grand Slam Offer usando o framework
+    $100M Offers de Alex Hormozi. Da análise de mercado ao value stack
+    final, passando por pricing, garantia e naming.
+  trigger: "*create-offer"
+  entry_agent: hormozi-chief
+  estimated_duration: "1-1.5 hours"
+
+phases:
+  - id: phase_1_market_analysis
+    name: Análise de Mercado e Dream Outcome
+    agent: hormozi-chief
+    task: create-offer.md
+    description: |
+      Analisa o mercado, identifica o dream outcome do cliente ideal,
+      e mapeia as alternativas existentes. Define o gap entre o que o
+      mercado oferece e o que o cliente realmente quer.
+    outputs:
+      - dream_outcome: "string"
+      - market_gap: "string"
+      - competitor_offers: "list"
+
+  - id: phase_2_value_equation
+    name: Value Equation Design
+    agent: hormozi-offers
+    task: create-offer.md
+    depends_on: [phase_1_market_analysis]
+    description: |
+      Aplica a Value Equation: maximiza Dream Outcome e Perceived Likelihood
+      of Achievement, minimiza Time Delay e Effort & Sacrifice. Cada
+      componente é projetado para tornar a oferta matematicamente irresistível.
+    outputs:
+      - value_equation: "object"
+      - enhancement_ideas: "list"
+
+  - id: phase_3_value_stack
+    name: Value Stack Construction
+    agent: hormozi-offers
+    task: create-offer.md
+    depends_on: [phase_2_value_equation]
+    description: |
+      Constrói o value stack completo: core offer + bonuses que aumentam
+      likelihood e reduzem risk. Cada componente tem valor atribuído
+      e justificativa. O stack total deve ser 3-10x o preço.
+    outputs:
+      - core_offer: "object"
+      - bonuses: "list"
+      - total_value: "number"
+
+  - id: phase_4_pricing
+    name: Pricing e Garantia
+    agent: hormozi-pricing
+    task: create-offer.md
+    depends_on: [phase_3_value_stack]
+    description: |
+      Define preço baseado em valor (não custo), estratégia de ancoragem,
+      e tipo de garantia (unconditional, conditional, ou anti-guarantee).
+      O preço deve fazer o prospect sentir que está roubando.
+    outputs:
+      - price: "number"
+      - pricing_justification: "string"
+      - guarantee_type: "string"
+      - guarantee_wording: "string"
+
+  - id: phase_5_naming_packaging
+    name: Naming e Packaging Final
+    agent: hormozi-chief
+    task: create-offer.md
+    depends_on: [phase_4_pricing]
+    description: |
+      Cria nome magnético para a oferta, empacota o value stack em
+      formato apresentável, e produz o one-liner que resume a oferta.
+      Testa contra o critério: "seria estúpido dizer não?"
+    outputs:
+      - offer_name: "string"
+      - one_liner: "string"
+      - complete_offer_document: "string"
+      - stupid_test_result: "boolean"
+
+completion_criteria:
+  - "Value Equation preenchida com todos os 4 componentes otimizados"
+  - "Value Stack com mínimo de 3 bonuses e valor total >3x preço"
+  - "Pricing justificado por valor, não por custo"
+  - "Garantia definida com wording específico"
+  - "Nome da oferta criado e testado"
+  - "Passa no 'stupid test': seria estúpido dizer não"

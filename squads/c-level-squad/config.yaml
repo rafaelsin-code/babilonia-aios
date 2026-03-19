@@ -1,0 +1,40 @@
+squad:
+  name: C-Level Squad
+  id: c-level-squad
+  description: >
+    Conselho executivo virtual composto por 7 C-levels especializados que fornecem
+    direcionamento estratégico de alto nível. Cada membro traz a perspectiva de seu domínio
+    (visão, operações, marketing, tecnologia, inteligência, IA e finanças) para decisões
+    empresariais complexas que exigem análise multidimensional.
+  chief: vision-chief
+  agents:
+    - vision-chief
+    - coo-orchestrator
+    - cmo-architect
+    - cto-architect
+    - cio-engineer
+    - caio-architect
+    - cfo-strategist
+
+routing:
+  default: vision-chief
+  keywords:
+    estrategia: vision-chief
+    operacoes: coo-orchestrator
+    processos: coo-orchestrator
+    marketing: cmo-architect
+    growth: cmo-architect
+    tecnologia: cto-architect
+    stack: cto-architect
+    dados: cio-engineer
+    analytics: cio-engineer
+    inteligencia-artificial: caio-architect
+    automacao: caio-architect
+    financeiro: cfo-strategist
+    pricing: cfo-strategist
+
+collaboration:
+  mode: council
+  chief_moderates: true
+  max_parallel_agents: 4
+  council_quorum: 3

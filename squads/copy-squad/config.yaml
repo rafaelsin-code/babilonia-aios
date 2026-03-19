@@ -1,0 +1,54 @@
+squad:
+  id: copy-squad
+  name: Copy Squad
+  version: "1.0.0"
+  description: |
+    Esquadrão de copywriting liderado por Cyrus, o Chief Copy Officer,
+    composto pelas maiores lendas do direct response e persuasão escrita.
+    De Gary Halbert a Joe Sugarman, cada agente domina um estilo e conjunto
+    de técnicas únicos. Use este squad para headlines, VSLs, emails,
+    landing pages, sequências de nurture e qualquer peça que precise
+    converter palavras em dinheiro.
+
+  entry_agent: cyrus
+
+  agents:
+    - id: cyrus
+      file: agents/cyrus.md
+      tier: 0
+    - id: gary-halbert
+      file: agents/gary-halbert.md
+      tier: 1
+    - id: eugene-schwartz
+      file: agents/eugene-schwartz.md
+      tier: 1
+    - id: david-ogilvy
+      file: agents/david-ogilvy.md
+      tier: 1
+    - id: dan-kennedy
+      file: agents/dan-kennedy.md
+      tier: 1
+    - id: russell-brunson
+      file: agents/russell-brunson.md
+      tier: 1
+    - id: frank-kern
+      file: agents/frank-kern.md
+      tier: 1
+    - id: ben-settle
+      file: agents/ben-settle.md
+      tier: 1
+    - id: andre-chaperon
+      file: agents/andre-chaperon.md
+      tier: 1
+    - id: joe-sugarman
+      file: agents/joe-sugarman.md
+      tier: 1
+
+  tags:
+    - copywriting
+    - direct-response
+    - persuasion
+    - sales-letters
+    - email-marketing
+    - headlines
+    - conversion

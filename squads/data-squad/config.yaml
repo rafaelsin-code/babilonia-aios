@@ -1,0 +1,45 @@
+squad:
+  id: data-squad
+  name: Data Squad
+  version: "1.0.0"
+  description: |
+    Esquadrão de dados, analytics e growth intelligence. Liderado por Datum,
+    o Chief Data Officer, com especialistas em web analytics, customer lifetime value,
+    growth hacking, educação de audiência, customer success e community-led growth.
+    Use este squad para auditorias de crescimento, definição de North Star Metric,
+    análises de cohort, CLV, retenção e qualquer decisão baseada em dados.
+
+  entry_agent: datum
+
+  agents:
+    - id: datum
+      file: agents/datum.md
+      tier: 0
+    - id: avinash-kaushik
+      file: agents/avinash-kaushik.md
+      tier: 1
+    - id: peter-fader
+      file: agents/peter-fader.md
+      tier: 1
+    - id: sean-ellis
+      file: agents/sean-ellis.md
+      tier: 1
+    - id: wes-kao
+      file: agents/wes-kao.md
+      tier: 1
+    - id: nick-mehta
+      file: agents/nick-mehta.md
+      tier: 1
+    - id: david-spinks
+      file: agents/david-spinks.md
+      tier: 1
+
+  tags:
+    - analytics
+    - data
+    - growth
+    - metrics
+    - clv
+    - retention
+    - community
+    - north-star

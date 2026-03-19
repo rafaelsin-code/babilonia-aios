@@ -1,0 +1,90 @@
+workflow:
+  id: wf-board-meeting
+  name: Board Meeting — Deliberação Estratégica Completa
+  version: "1.0.0"
+  description: |
+    Workflow completo de reunião do conselho consultivo. Conduz uma deliberação
+    estruturada em 4 fases — do enquadramento do problema à recomendação final —
+    incluindo convocação de conselheiros, análise multi-perspectiva, red team
+    obrigatório e síntese executiva.
+  trigger: "*convene-board"
+  entry_agent: board-chair
+  estimated_duration: "45-60 minutes"
+
+phases:
+  - id: phase_1_framing
+    name: Enquadramento do Problema
+    agent: board-chair
+    task: convene-board.md
+    description: |
+      Board Chair enquadra o problema real (não o sintoma), define stakeholders,
+      restrições, timeline e critérios de sucesso. Seleciona o painel de
+      conselheiros ideal usando a Matriz de Convocação.
+    outputs:
+      - problem_statement: "string"
+      - selected_advisors: "list"
+      - success_criteria: "list"
+
+  - id: phase_2_divergence
+    name: Divergência — Perspectivas Individuais
+    agent: selected-advisors
+    task: diagnose.md
+    depends_on: [phase_1_framing]
+    description: |
+      Cada conselheiro selecionado apresenta sua análise independente sem
+      interferência dos outros. Perspectivas financeiras, competitivas,
+      culturais e filosóficas são coletadas separadamente.
+    outputs:
+      - advisor_perspectives: "list"
+      - key_insights: "list"
+
+  - id: phase_3_convergence
+    name: Convergência — Síntese de Perspectivas
+    agent: board-chair
+    task: convene-board.md
+    depends_on: [phase_2_divergence]
+    description: |
+      Board Chair identifica pontos de concordância genuína, divergência real
+      (não apenas diferença de linguagem) e falsa divergência. Mapeia onde
+      há consenso forte e onde há incerteza legítima.
+    outputs:
+      - consensus_points: "list"
+      - genuine_disagreements: "list"
+      - emerging_recommendation: "string"
+
+  - id: phase_4_red_team
+    name: Red Team — Stress Test da Recomendação
+    agent: charlie-munger
+    task: diagnose.md
+    depends_on: [phase_3_convergence]
+    description: |
+      Red teamer (tipicamente Munger) ataca a recomendação emergente:
+      identifica a premissa mais fraca, constrói o melhor caso contra,
+      e propõe o cenário de falha mais provável.
+    outputs:
+      - weakest_premise: "string"
+      - counter_argument: "string"
+      - failure_scenario: "string"
+
+  - id: phase_5_resolution
+    name: Resolução — Recomendação Final
+    agent: board-chair
+    task: convene-board.md
+    depends_on: [phase_4_red_team]
+    description: |
+      Board Chair sintetiza tudo em uma recomendação final com nível de
+      confiança (alto/médio/baixo), riscos residuais identificados, e
+      trigger points que justificariam revisão da decisão.
+    outputs:
+      - final_recommendation: "string"
+      - confidence_level: "string"
+      - residual_risks: "list"
+      - trigger_points: "list"
+      - next_steps: "list"
+
+completion_criteria:
+  - "Problema enquadrado com critérios de sucesso definidos"
+  - "Mínimo de 3 perspectivas de conselheiros coletadas"
+  - "Red team executado com premissa mais fraca identificada"
+  - "Recomendação final com nível de confiança e risks documentados"
+  - "Próximos passos concretos definidos com owners"

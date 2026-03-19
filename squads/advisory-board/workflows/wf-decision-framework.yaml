@@ -1,0 +1,73 @@
+workflow:
+  id: wf-decision-framework
+  name: Decision Framework — Análise de Decisão Estruturada
+  version: "1.0.0"
+  description: |
+    Workflow para decisões binárias ou multi-opção que precisam de análise
+    rigorosa. Estrutura a decisão em opções claras, avalia cada uma contra
+    critérios ponderados, aplica inversão (Munger), e entrega recomendação
+    com análise de cenários.
+  trigger: "*decide"
+  entry_agent: board-chair
+  estimated_duration: "30-45 minutes"
+
+phases:
+  - id: phase_1_structure
+    name: Estruturar a Decisão
+    agent: board-chair
+    task: diagnose.md
+    description: |
+      Transforma um dilema nebuloso em uma decisão estruturada: define as
+      opções disponíveis (incluindo "não fazer nada"), critérios de avaliação
+      ponderados, e informações necessárias para cada critério.
+    outputs:
+      - options: "list"
+      - weighted_criteria: "list"
+      - information_gaps: "list"
+
+  - id: phase_2_analysis
+    name: Análise por Perspectiva
+    agent: selected-advisors
+    task: seek-investment-counsel.md
+    depends_on: [phase_1_structure]
+    description: |
+      Cada conselheiro relevante avalia as opções sob sua perspectiva
+      especializada. Dalio avalia risco financeiro, Thiel avalia vantagem
+      competitiva, Naval avalia alinhamento de longo prazo.
+    outputs:
+      - option_scores: "matrix"
+      - advisor_notes: "list"
+
+  - id: phase_3_inversion
+    name: Inversão — O Que Pode Dar Errado
+    agent: charlie-munger
+    task: diagnose.md
+    depends_on: [phase_2_analysis]
+    description: |
+      Aplica inversão de Munger: em vez de perguntar "qual é a melhor opção?",
+      pergunta "como cada opção pode fracassar catastroficamente?". Identifica
+      riscos assimétricos e consequências irreversíveis.
+    outputs:
+      - failure_modes: "list"
+      - irreversible_consequences: "list"
+      - asymmetric_risks: "list"
+
+  - id: phase_4_recommendation
+    name: Recomendação com Cenários
+    agent: board-chair
+    task: convene-board.md
+    depends_on: [phase_3_inversion]
+    description: |
+      Consolida análises em recomendação final com cenários bull/base/bear
+      para a opção recomendada, condições de reversão, e plano de execução.
+    outputs:
+      - recommended_option: "string"
+      - scenario_analysis: "object"
+      - reversal_conditions: "list"
+      - execution_plan: "string"
+
+completion_criteria:
+  - "Decisão estruturada com opções e critérios claros"
+  - "Cada opção avaliada por mínimo 2 conselheiros"
+  - "Inversão aplicada com failure modes mapeados"
+  - "Recomendação com cenários e condições de reversão"

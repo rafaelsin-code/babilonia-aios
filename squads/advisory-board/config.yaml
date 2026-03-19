@@ -1,0 +1,54 @@
+squad:
+  id: advisory-board
+  name: Advisory Board
+  version: "1.0.0"
+  description: |
+    Conselho consultivo de alto nível composto por simulações de algumas das mentes
+    mais brilhantes do mundo dos negócios, investimentos, liderança e filosofia de vida.
+    Cada membro traz décadas de experiência destilada em frameworks práticos.
+    Use este squad quando precisar de perspectivas estratégicas profundas,
+    decisões de alto impacto ou validação de direção para o negócio.
+
+  entry_agent: board-chair
+
+  agents:
+    - id: board-chair
+      file: agents/board-chair.md
+      tier: 0
+    - id: ray-dalio
+      file: agents/ray-dalio.md
+      tier: 1
+    - id: charlie-munger
+      file: agents/charlie-munger.md
+      tier: 1
+    - id: naval-ravikant
+      file: agents/naval-ravikant.md
+      tier: 1
+    - id: peter-thiel
+      file: agents/peter-thiel.md
+      tier: 1
+    - id: reid-hoffman
+      file: agents/reid-hoffman.md
+      tier: 1
+    - id: simon-sinek
+      file: agents/simon-sinek.md
+      tier: 1
+    - id: brene-brown
+      file: agents/brene-brown.md
+      tier: 1
+    - id: patrick-lencioni
+      file: agents/patrick-lencioni.md
+      tier: 1
+    - id: derek-sivers
+      file: agents/derek-sivers.md
+      tier: 1
+    - id: yvon-chouinard
+      file: agents/yvon-chouinard.md
+      tier: 1
+
+  tags:
+    - strategy
+    - leadership
+    - decision-making
+    - business-philosophy
+    - high-level-thinking

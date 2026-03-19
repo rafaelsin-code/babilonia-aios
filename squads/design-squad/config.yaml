@@ -1,0 +1,37 @@
+squad:
+  name: Design Squad
+  id: design-squad
+  description: >
+    Esquadrão de design que cobre todo o espectro de product design — de design systems
+    e componentização até UX research, interaction design e UI engineering. Reúne especialistas
+    que transformam requisitos de negócio em experiências digitais excepcionais, escaláveis
+    e acessíveis.
+  chief: design-chief
+  agents:
+    - design-chief
+    - brad-frost
+    - dan-mall
+    - dave-malouf
+    - ux-designer
+    - ui-engineer
+
+routing:
+  default: design-chief
+  keywords:
+    design-system: brad-frost
+    componentes: brad-frost
+    design-ops: dan-mall
+    processo-de-design: dan-mall
+    interaction-design: dave-malouf
+    motion: dave-malouf
+    pesquisa: ux-designer
+    ux-research: ux-designer
+    usabilidade: ux-designer
+    implementacao: ui-engineer
+    css: ui-engineer
+    frontend: ui-engineer
+
+collaboration:
+  mode: hierarchical
+  chief_delegates: true
+  max_parallel_agents: 3

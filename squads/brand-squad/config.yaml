@@ -1,0 +1,35 @@
+squad:
+  name: Brand Squad
+  id: brand-squad
+  description: >
+    Esquadrão especializado em estratégia de marca, posicionamento, arquitetura de brand,
+    naming e construção de identidade verbal. Reúne os maiores frameworks de branding do mundo
+    em agentes especializados que colaboram para criar marcas memoráveis e estrategicamente sólidas.
+  chief: brand-chief
+  agents:
+    - brand-chief
+    - david-aaker
+    - al-ries
+    - marty-neumeier
+    - donald-miller
+    - kevin-keller
+    - byron-sharp
+    - archetype-consultant
+    - naming-strategist
+
+routing:
+  default: brand-chief
+  keywords:
+    posicionamento: al-ries
+    arquétipo: archetype-consultant
+    naming: naming-strategist
+    storytelling: donald-miller
+    brand-equity: kevin-keller
+    identidade-visual: marty-neumeier
+    distinção: byron-sharp
+    arquitetura-de-marca: david-aaker
+
+collaboration:
+  mode: hierarchical
+  chief_delegates: true
+  max_parallel_agents: 3

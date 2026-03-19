@@ -1,0 +1,92 @@
+workflow:
+  id: wf-brand-creation
+  name: Brand Creation — Construção de Marca do Zero
+  version: "1.0.0"
+  description: |
+    Workflow completo para criar uma marca do zero: do diagnóstico de
+    mercado ao posicionamento, naming, arquétipo, identidade verbal,
+    e guidelines de marca. Orquestrado pelo Brand Chief com especialistas
+    em cada disciplina.
+  trigger: "*brand-creation"
+  entry_agent: brand-chief
+  estimated_duration: "2-3 hours"
+
+phases:
+  - id: phase_1_discovery
+    name: Brand Discovery e Diagnóstico
+    agent: brand-chief
+    task: brand-audit.md
+    description: |
+      Levantamento profundo: mercado, competidores, audiência, aspirações
+      do fundador, e oportunidades de diferenciação. Usa o Brand Strategy
+      Canvas como framework de captura.
+    outputs:
+      - market_landscape: "object"
+      - audience_insights: "object"
+      - differentiation_opportunities: "list"
+
+  - id: phase_2_positioning
+    name: Posicionamento Estratégico
+    agent: al-ries
+    task: positioning.md
+    depends_on: [phase_1_discovery]
+    description: |
+      Al Ries analisa posições mentais disponíveis no mercado e recomenda
+      o posicionamento que a marca deve ocupar. Byron Sharp complementa
+      com análise de distinctive assets necessários.
+    outputs:
+      - positioning_statement: "string"
+      - category_strategy: "string"
+      - distinctive_assets: "list"
+
+  - id: phase_3_archetype
+    name: Arquétipo e Personalidade
+    agent: archetype-consultant
+    task: brand-audit.md
+    depends_on: [phase_2_positioning]
+    description: |
+      Define o arquétipo de marca dominante e secundário, personalidade,
+      tom de voz e universo simbólico. Garante que a personalidade está
+      alinhada com o posicionamento e ressoa com a audiência.
+    outputs:
+      - primary_archetype: "string"
+      - secondary_archetype: "string"
+      - brand_personality: "object"
+      - tone_of_voice: "object"
+
+  - id: phase_4_naming
+    name: Naming e Identidade Verbal
+    agent: naming-strategist
+    task: brand-naming.md
+    depends_on: [phase_3_archetype]
+    description: |
+      Cria opções de nome, tagline, e elementos de identidade verbal
+      (vocabulário de marca, messaging hierarchy). Cada opção é validada
+      contra os critérios estratégicos definidos nas fases anteriores.
+    outputs:
+      - name_options: "list"
+      - recommended_name: "string"
+      - tagline: "string"
+      - messaging_hierarchy: "object"
+
+  - id: phase_5_guidelines
+    name: Brand Guidelines e Consolidação
+    agent: brand-chief
+    task: brand-audit.md
+    depends_on: [phase_4_naming]
+    description: |
+      Consolida todos os elementos em um Brand Book: posicionamento,
+      arquétipo, naming, tom de voz, messaging, do's and don'ts, e
+      guidelines de aplicação por canal.
+    outputs:
+      - brand_book: "string"
+      - brand_strategy_canvas: "object"
+      - implementation_roadmap: "string"
+
+completion_criteria:
+  - "Posicionamento definido e validado contra competidores"
+  - "Arquétipo e personalidade documentados"
+  - "Nome aprovado com verificação de disponibilidade"
+  - "Tagline e messaging hierarchy criados"
+  - "Brand Book consolidado com guidelines de uso"
+  - "Roadmap de implementação com próximos passos"

@@ -1,0 +1,42 @@
+squad:
+  id: cybersecurity-squad
+  name: Cybersecurity Squad
+  version: "1.0.0"
+  description: |
+    Esquadrão de segurança cibernética com abordagem ofensiva e defensiva.
+    Liderado pelo Sec Chief (CISO virtual), com Red Team Lead para testes ofensivos,
+    Blue Team Lead para defesa, AppSec Engineer para segurança de aplicações,
+    Pentester para testes de penetração e Incident Responder para resposta a incidentes.
+    Use este squad para auditorias de segurança, pentests, hardening,
+    resposta a incidentes e construção de postura de segurança.
+
+  entry_agent: sec-chief
+
+  agents:
+    - id: sec-chief
+      file: agents/sec-chief.md
+      tier: 0
+    - id: red-team-lead
+      file: agents/red-team-lead.md
+      tier: 1
+    - id: blue-team-lead
+      file: agents/blue-team-lead.md
+      tier: 1
+    - id: appsec-engineer
+      file: agents/appsec-engineer.md
+      tier: 1
+    - id: pentester
+      file: agents/pentester.md
+      tier: 2
+    - id: incident-responder
+      file: agents/incident-responder.md
+      tier: 2
+
+  tags:
+    - cybersecurity
+    - pentest
+    - red-team
+    - blue-team
+    - appsec
+    - incident-response
+    - security-audit

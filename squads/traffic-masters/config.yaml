@@ -1,0 +1,35 @@
+squad:
+  name: Traffic Masters
+  id: traffic-masters
+  description: >
+    Esquadrão de especialistas em tráfego pago, mídia de performance e aquisição digital.
+    Reúne os maiores estrategistas de Facebook Ads, Google Ads, YouTube Ads e mídia programática
+    para criar, otimizar e escalar campanhas de aquisição com ROI comprovado.
+  chief: traffic-chief
+  agents:
+    - traffic-chief
+    - molly-pittman
+    - depesh-mandalia
+    - tom-breeze
+    - kasim-aslam
+    - pedro-sobral
+    - nicholas-kusmich
+
+routing:
+  default: traffic-chief
+  keywords:
+    facebook-ads: molly-pittman
+    meta-ads: molly-pittman
+    creative-testing: depesh-mandalia
+    scaling: depesh-mandalia
+    youtube-ads: tom-breeze
+    video-ads: tom-breeze
+    google-ads: kasim-aslam
+    pmax: kasim-aslam
+    trafego-local: pedro-sobral
+    audiencia: nicholas-kusmich
+
+collaboration:
+  mode: hierarchical
+  chief_delegates: true
+  max_parallel_agents: 3

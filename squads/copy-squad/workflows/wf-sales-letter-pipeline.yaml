@@ -1,0 +1,86 @@
+workflow:
+  id: wf-sales-letter-pipeline
+  name: Sales Letter Pipeline — Da Pesquisa à Carta Final
+  version: "1.0.0"
+  description: |
+    Pipeline completo de produção de sales letter: pesquisa de mercado e
+    audiência, definição de big idea e angle, headline testing, escrita do
+    body copy, revisão por múltiplos copywriters, e entrega final otimizada.
+  trigger: "*write-sales-letter"
+  entry_agent: cyrus
+  estimated_duration: "1-2 hours"
+
+phases:
+  - id: phase_1_research
+    name: Pesquisa e Diagnóstico
+    agent: cyrus
+    task: write-sales-letter.md
+    description: |
+      Cyrus analisa o briefing, identifica o nível de awareness da audiência
+      (Schwartz), mapeia dores/desejos/objeções, e define a big idea e o
+      angle da carta. Este é o fundamento de tudo.
+    outputs:
+      - awareness_level: "string"
+      - pain_desire_map: "object"
+      - big_idea: "string"
+      - angle: "string"
+
+  - id: phase_2_headlines
+    name: Geração de Headlines
+    agent: david-ogilvy
+    task: generate-headlines.md
+    depends_on: [phase_1_research]
+    description: |
+      David Ogilvy e Joe Sugarman geram 20+ headlines baseadas na big idea
+      e angle definidos. Headlines são categorizadas por tipo e rankeadas
+      por potencial de conversão.
+    outputs:
+      - headline_package: "list"
+      - recommended_headline: "string"
+
+  - id: phase_3_structure
+    name: Estrutura e Lead
+    agent: eugene-schwartz
+    task: write-sales-letter.md
+    depends_on: [phase_1_research]
+    description: |
+      Eugene Schwartz define a abertura (lead) baseada no awareness level.
+      Unaware = story lead, Problem-aware = problem-solution lead,
+      Most-aware = direct offer lead. A lead é a parte mais crítica da carta.
+    outputs:
+      - lead_copy: "string"
+      - awareness_strategy: "string"
+
+  - id: phase_4_body
+    name: Body Copy — Story + Offer
+    agent: gary-halbert
+    task: write-sales-letter.md
+    depends_on: [phase_2_headlines, phase_3_structure]
+    description: |
+      Gary Halbert escreve o body da carta: storytelling, proof elements,
+      benefit stacking, offer presentation, guarantee, call to action e P.S.
+      Cada seção é projetada para manter o leitor deslizando até o CTA.
+    outputs:
+      - full_sales_letter: "string"
+      - word_count: "number"
+
+  - id: phase_5_review
+    name: Revisão e Otimização Final
+    agent: cyrus
+    task: write-sales-letter.md
+    depends_on: [phase_4_body]
+    description: |
+      Cyrus revisa a carta completa: verifica fluxo, transições, consistency
+      de voice, força do CTA, e otimiza para conversão. Garante que cada
+      frase serve um propósito e que o leitor é guiado irresistivelmente.
+    outputs:
+      - final_sales_letter: "string"
+      - copy_notes: "list"
+      - ab_test_suggestions: "list"
+
+completion_criteria:
+  - "Awareness level definido e lead alinhada"
+  - "Headline testada contra 5+ alternativas"
+  - "Body copy com storytelling, prova social e value stack"
+  - "CTA claro com garantia e urgência"
+  - "Revisão final por Cyrus com notas de otimização"

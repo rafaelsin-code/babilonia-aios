@@ -1,0 +1,36 @@
+squad:
+  id: product-squad
+  name: Product Squad
+  version: "1.0.0"
+  description: |
+    Esquadrão de produto, SEO, finanças estratégicas e ética de IA.
+    Composto por Product Manager (discovery e roadmap), SEO Architect (search
+    strategy e organic growth), CFO Strategist (modelagem financeira e unit economics)
+    e AI Ethics Guardian (governança ética de IA e compliance).
+    Use este squad para product discovery, auditorias de SEO, modelagem financeira,
+    roadmap de produto e avaliação ética de IA.
+
+  entry_agent: product-manager
+
+  agents:
+    - id: product-manager
+      file: agents/product-manager.md
+      tier: 0
+    - id: seo-architect
+      file: agents/seo-architect.md
+      tier: 1
+    - id: cfo-strategist
+      file: agents/cfo-strategist.md
+      tier: 1
+    - id: ai-ethics-guardian
+      file: agents/ai-ethics-guardian.md
+      tier: 1
+
+  tags:
+    - product
+    - seo
+    - finance
+    - unit-economics
+    - roadmap
+    - ai-ethics
+    - discovery

@@ -1,0 +1,89 @@
+workflow:
+  id: wf-campaign-launch
+  name: Campaign Launch — Lançamento de Campanha de Tráfego
+  version: "1.0.0"
+  description: |
+    Workflow completo para lançar uma campanha de tráfego pago do zero:
+    estratégia, criativos, setup de campanha, launch, otimização da
+    primeira semana e plano de scaling. Cobre Meta, Google, TikTok e LinkedIn.
+  trigger: "*launch-campaign"
+  entry_agent: traffic-chief
+  estimated_duration: "1.5-2 hours"
+
+phases:
+  - id: phase_1_strategy
+    name: Estratégia de Campanha
+    agent: traffic-chief
+    task: campaign-audit.md
+    description: |
+      Define objetivo, KPIs, budget allocation por plataforma, targeting
+      strategy, e estrutura de campanha. Inclui benchmarks esperados
+      e critérios de sucesso/falha.
+    outputs:
+      - campaign_strategy: "object"
+      - platform_allocation: "object"
+      - kpi_targets: "object"
+      - success_criteria: "list"
+
+  - id: phase_2_creative
+    name: Creative Development
+    agent: creative-director
+    task: creative-brief.md
+    depends_on: [phase_1_strategy]
+    description: |
+      Desenvolve o pacote criativo: conceito, hooks, scripts para cada
+      formato, variações para teste A/B, e specs por plataforma.
+      Mínimo de 5 criativos para launch.
+    outputs:
+      - creative_brief: "object"
+      - ad_scripts: "list"
+      - hook_variations: "list"
+      - format_specs: "list"
+
+  - id: phase_3_setup
+    name: Campaign Setup
+    agent: platform-specialist
+    task: campaign-audit.md
+    depends_on: [phase_2_creative]
+    description: |
+      Configura campanhas em cada plataforma: estrutura de conta,
+      audiences (prospecting + retargeting), bidding strategy, tracking
+      (pixels, UTMs, conversions), e ad creative upload.
+    outputs:
+      - campaign_structure: "object"
+      - tracking_setup: "object"
+      - audience_configuration: "list"
+
+  - id: phase_4_launch_monitoring
+    name: Launch e Monitoramento Inicial
+    agent: traffic-chief
+    task: campaign-audit.md
+    depends_on: [phase_3_setup]
+    description: |
+      Lança as campanhas e monitora as primeiras 48-72 horas. Avalia
+      delivery, CPM, CTR, e early conversion signals. Faz ajustes
+      emergenciais se necessário.
+    outputs:
+      - launch_report: "object"
+      - early_metrics: "object"
+      - emergency_adjustments: "list"
+
+  - id: phase_5_optimization_plan
+    name: Plano de Otimização e Scaling
+    agent: traffic-chief
+    task: scaling-plan.md
+    depends_on: [phase_4_launch_monitoring]
+    description: |
+      Com dados da primeira semana, define plano de otimização (kill losers,
+      scale winners, test new) e plano de scaling para as próximas 4-8 semanas.
+    outputs:
+      - optimization_actions: "list"
+      - scaling_plan: "object"
+      - creative_refresh_calendar: "object"
+
+completion_criteria:
+  - "Estratégia definida com KPIs e budget allocation"
+  - "Mínimo 5 criativos produzidos com variações de teste"
+  - "Tracking implementado e verificado (pixel, UTMs, conversions)"
+  - "Campanhas lançadas e monitoradas por 48-72h"
+  - "Plano de otimização e scaling documentado para próximas 8 semanas"
