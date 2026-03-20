@@ -159,6 +159,50 @@ export default function DownloadsPage() {
           ))}
         </div>
 
+        {/* Como usar no Claude Code */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-3">Como usar</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+              Slash commands no Claude Code
+            </h2>
+            <p className="text-slate-500">
+              Apos instalar, abra o projeto no Claude Code e use os comandos.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <div className="px-6 py-4 border-b border-slate-800 flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500/80" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+              <div className="w-3 h-3 rounded-full bg-green-500/80" />
+              <span className="text-xs font-mono text-slate-500 ml-2">Claude Code</span>
+            </div>
+            <div className="p-6 space-y-3">
+              {[
+                { cmd: "/babilonia", desc: "menu com todos os comandos" },
+                { cmd: "/advisory-board", desc: "conselho com Dalio, Munger, Naval, Thiel" },
+                { cmd: "/copy-squad", desc: "squad de copy com Halbert, Ogilvy, Schwartz" },
+                { cmd: "/hormozi-squad", desc: "frameworks Hormozi completos" },
+                { cmd: "/brand-squad", desc: "estrategia de marca com Aaker, Ries, Neumeier" },
+                { cmd: "/traffic-masters", desc: "trafego com Pittman, Sobral, Breeze" },
+                { cmd: "/c-level", desc: "C-suite virtual completa" },
+                { cmd: "/storytelling", desc: "narrativa com Campbell, McKee, Duarte" },
+                { cmd: "/criar-oferta", desc: "executa Grand Slam Offer passo a passo" },
+                { cmd: "/escrever-copy", desc: "escreve sales letter completa" },
+                { cmd: "/auditar-marca", desc: "auditoria completa de marca" },
+                { cmd: "/reunir-conselho", desc: "deliberacao estrategica multi-agente" },
+              ].map((item) => (
+                <div key={item.cmd} className="flex items-center gap-4 group">
+                  <code className="text-sm font-mono text-cyan-400 w-44 shrink-0">{item.cmd}</code>
+                  <span className="text-slate-500 text-sm">→</span>
+                  <span className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">{item.desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Prerequisites */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6 mb-10">
           <div className="flex items-center gap-2 mb-4">
