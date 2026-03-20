@@ -72,7 +72,7 @@ export default function DownloadsPage() {
           </div>
 
           <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
-            Babilonia
+            Babilônia
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"> AIOS</span>
           </h1>
 

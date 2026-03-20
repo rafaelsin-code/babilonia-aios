@@ -23,7 +23,7 @@ export default function Sidebar() {
         </div>
         <div>
           <h1 className="text-sm font-semibold text-white leading-tight">
-            Babilonia AIOS
+            Babilônia AIOS
           </h1>
           <p className="text-[10px] text-slate-400 tracking-wider uppercase leading-tight mt-0.5">
             As maiores mentes para voce
@@ -65,7 +65,7 @@ export default function Sidebar() {
       {/* Footer */}
       <div className="mt-auto px-5 py-4">
         <p className="text-[11px] text-slate-600">
-          Babilonia AIOS by Rafael Pinheiro
+          Babilônia AIOS by Rafael Pinheiro
         </p>
       </div>
     </aside>

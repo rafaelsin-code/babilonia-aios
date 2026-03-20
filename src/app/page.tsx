@@ -104,7 +104,7 @@ export default function Home() {
           </div>
 
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight text-slate-900 mb-6 animate-fade-in-up" style={{ animationDelay: '100ms', opacity: 0 }}>
-            Babilonia
+            Babilônia
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> AIOS</span>
           </h1>
 
@@ -167,7 +167,7 @@ export default function Home() {
               <span className="text-blue-600"> Nos sabemos tudo</span> de cada coisa.
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-6">
-              Cada agente do Babilonia foi treinado com a metodologia, frameworks,
+              Cada agente do Babilônia foi treinado com a metodologia, frameworks,
               personalidade e estilo de pensamento de um especialista real. Nao e um chatbot
               generico — e uma inteligencia calibrada para pensar como os melhores do mundo.
             </p>
