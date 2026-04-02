@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useParams, notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Copy, Check, Crown, Sparkles } from "lucide-react";
 import { getSquadBySlug } from "@/data/squads";
@@ -65,13 +66,15 @@ export default function AgentDetailPage() {
               {/* Avatar */}
               <div className="flex flex-col items-center mb-5">
                 <div className="relative mb-4">
-                  <img
+                  <Image
                     src={
                       agent.photo && !imgError
                         ? agent.photo
                         : fallbackAvatar
                     }
                     alt={agent.name}
+                    width={96}
+                    height={96}
                     className="w-24 h-24 rounded-2xl object-cover border-2 border-slate-100"
                     onError={() => setImgError(true)}
                   />

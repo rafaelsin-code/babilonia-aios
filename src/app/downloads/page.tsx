@@ -35,19 +35,19 @@ function CopyButton({ text }: { text: string }) {
 }
 
 const steps = [
-  { num: 1, label: "Clone o repositorio", cmd: "git clone https://github.com/BabiloniaAIOS/babilonia-aios.git" },
+  { num: 1, label: "Clone o repositório", cmd: "git clone https://github.com/rafaelsin-code/babilonia-aios.git" },
   { num: 2, label: "Entre na pasta do projeto", cmd: "cd babilonia-aios" },
-  { num: 3, label: "Instale as dependencias", cmd: "npm install" },
-  { num: 4, label: "Execute o instalador do AIOS", cmd: "npx babilonia-aios install" },
+  { num: 3, label: "Instale as dependências", cmd: "npm install" },
+  { num: 4, label: "Inicie o servidor", cmd: "npm run dev" },
 ];
 
 const features = [
-  { icon: Cpu, title: "140 Agentes IA", desc: "Agentes especializados com personalidade, frameworks e metodologias unicas." },
-  { icon: Layers, title: "12 Squads", desc: "Times tematicos organizados por area de expertise." },
-  { icon: GitBranch, title: "23 Workflows", desc: "Pipelines que orquestram multiplos agentes em sequencia." },
-  { icon: Zap, title: "100 Tasks", desc: "Acoes executaveis com inputs e outputs definidos." },
-  { icon: Shield, title: "Framework Etico", desc: "Governanca e principios de IA responsavel integrados." },
-  { icon: Box, title: "CLI-First", desc: "Tudo via linha de comando. Rapido, flexivel, automatizavel." },
+  { icon: Cpu, title: "87 Agentes IA", desc: "Agentes especializados com personalidade, frameworks e metodologias únicas." },
+  { icon: Layers, title: "12 Squads", desc: "Times temáticos organizados por área de expertise." },
+  { icon: GitBranch, title: "7 Workflows", desc: "Pipelines que orquestram múltiplos agentes em sequência." },
+  { icon: Zap, title: "36 Tasks", desc: "Ações executáveis com inputs e outputs definidos." },
+  { icon: Shield, title: "Framework Ético", desc: "Governança e princípios de IA responsável integrados." },
+  { icon: Box, title: "Claude Code Ready", desc: "17 slash commands prontos. Abra o projeto e use." },
 ];
 
 export default function DownloadsPage() {
@@ -77,14 +77,14 @@ export default function DownloadsPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            O framework completo de orquestracao de agentes IA. Sistema de squads,
-            workflows inteligentes, CLI e toda a infraestrutura para desenvolvimento
-            orientado por inteligencia artificial.
+            O framework completo de orquestração de agentes IA. Sistema de squads,
+            workflows inteligentes e toda a infraestrutura para desenvolvimento
+            orientado por inteligência artificial.
           </p>
 
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <a
-              href="https://github.com/BabiloniaAIOS/babilonia-aios"
+              href="https://github.com/rafaelsin-code/babilonia-aios"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-white text-slate-900 font-semibold text-base hover:shadow-xl hover:shadow-white/10 transition-all duration-300 hover:-translate-y-0.5"
@@ -97,7 +97,7 @@ export default function DownloadsPage() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 text-white font-semibold text-base border border-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
             >
               <Terminal size={18} />
-              Instalacao Rapida
+              Instalação Rápida
             </a>
           </div>
         </div>
@@ -121,12 +121,12 @@ export default function DownloadsPage() {
       {/* ═══ INSTALLATION ═══ */}
       <section id="install" className="max-w-3xl mx-auto px-6 py-24">
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-3">Instalacao</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-3">Instalação</p>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
             Pronto em 4 comandos
           </h2>
           <p className="text-slate-500">
-            Copie e cole. Em menos de 2 minutos voce esta rodando.
+            Copie e cole. Em menos de 2 minutos você está rodando.
           </p>
         </div>
 
@@ -167,7 +167,7 @@ export default function DownloadsPage() {
               Slash commands no Claude Code
             </h2>
             <p className="text-slate-500">
-              Apos instalar, abra o projeto no Claude Code e use os comandos.
+              Após instalar, abra o projeto no Claude Code e use os comandos.
             </p>
           </div>
 
@@ -184,14 +184,14 @@ export default function DownloadsPage() {
                 { cmd: "/advisory-board", desc: "conselho com Dalio, Munger, Naval, Thiel" },
                 { cmd: "/copy-squad", desc: "squad de copy com Halbert, Ogilvy, Schwartz" },
                 { cmd: "/hormozi-squad", desc: "frameworks Hormozi completos" },
-                { cmd: "/brand-squad", desc: "estrategia de marca com Aaker, Ries, Neumeier" },
-                { cmd: "/traffic-masters", desc: "trafego com Pittman, Sobral, Breeze" },
+                { cmd: "/brand-squad", desc: "estratégia de marca com Aaker, Ries, Neumeier" },
+                { cmd: "/traffic-masters", desc: "tráfego com Pittman, Sobral, Breeze" },
                 { cmd: "/c-level", desc: "C-suite virtual completa" },
                 { cmd: "/storytelling", desc: "narrativa com Campbell, McKee, Duarte" },
                 { cmd: "/criar-oferta", desc: "executa Grand Slam Offer passo a passo" },
                 { cmd: "/escrever-copy", desc: "escreve sales letter completa" },
                 { cmd: "/auditar-marca", desc: "auditoria completa de marca" },
-                { cmd: "/reunir-conselho", desc: "deliberacao estrategica multi-agente" },
+                { cmd: "/reunir-conselho", desc: "deliberação estratégica multi-agente" },
               ].map((item) => (
                 <div key={item.cmd} className="flex items-center gap-4 group">
                   <code className="text-sm font-mono text-cyan-400 w-44 shrink-0">{item.cmd}</code>
@@ -207,7 +207,7 @@ export default function DownloadsPage() {
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6 mb-10">
           <div className="flex items-center gap-2 mb-4">
             <Shield size={16} className="text-blue-600" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-blue-700">Pre-requisitos</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-blue-700">Pré-requisitos</h4>
           </div>
           <div className="flex flex-wrap gap-2">
             {["Node.js 18+", "Git", "Claude Code (Anthropic CLI)"].map((req) => (
@@ -220,25 +220,25 @@ export default function DownloadsPage() {
 
         {/* One-liner */}
         <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 mb-10">
-          <p className="text-xs font-mono text-slate-500 mb-3 uppercase tracking-wider">Instalacao em uma linha</p>
+          <p className="text-xs font-mono text-slate-500 mb-3 uppercase tracking-wider">Instalação em uma linha</p>
           <div className="flex items-center justify-between gap-3">
             <code className="text-sm font-mono text-cyan-400 select-all">
-              git clone https://github.com/BabiloniaAIOS/babilonia-aios.git && cd babilonia-aios && npm i && npx babilonia-aios install
+              git clone https://github.com/rafaelsin-code/babilonia-aios.git && cd babilonia-aios && npm i && npm run dev
             </code>
-            <CopyButton text="git clone https://github.com/BabiloniaAIOS/babilonia-aios.git && cd babilonia-aios && npm i && npx babilonia-aios install" />
+            <CopyButton text="git clone https://github.com/rafaelsin-code/babilonia-aios.git && cd babilonia-aios && npm i && npm run dev" />
           </div>
         </div>
 
         {/* CTA */}
         <div className="text-center">
           <a
-            href="https://github.com/BabiloniaAIOS/babilonia-aios"
+            href="https://github.com/rafaelsin-code/babilonia-aios"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold text-base hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5"
           >
             <ExternalLink size={18} />
-            Acessar Repositorio no GitHub
+            Acessar Repositório no GitHub
             <ArrowRight size={16} />
           </a>
         </div>

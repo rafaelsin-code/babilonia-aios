@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { squads } from "@/data/squads";
 
@@ -75,9 +76,11 @@ export default function AgentsPage() {
                       className="group snap-start flex-shrink-0 w-[180px] bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center"
                     >
                       {/* Photo */}
-                      <img
+                      <Image
                         src={agent.photo || fallbackPhoto}
                         alt={agent.name}
+                        width={64}
+                        height={64}
                         className="w-16 h-16 rounded-xl object-cover mb-3"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = fallbackPhoto;

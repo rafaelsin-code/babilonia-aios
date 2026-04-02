@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useParams, notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -222,9 +223,11 @@ function AgentesTab({
           <div className="flex items-start gap-3.5 mb-3">
             {/* Avatar */}
             {agent.photo ? (
-              <img
+              <Image
                 src={agent.photo}
                 alt={agent.name}
+                width={44}
+                height={44}
                 className="w-[44px] h-[44px] rounded-full object-cover shrink-0"
               />
             ) : (

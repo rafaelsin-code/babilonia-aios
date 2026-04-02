@@ -1,7 +1,7 @@
 {
   "name": "babilonia-aios",
   "version": "1.0.0",
-  "description": "Babilonia AIOS — Plataforma de Agentes IA Especializados. 140 agentes, 12 squads, 23 workflows.",
+  "description": "Babilonia AIOS — Plataforma de Agentes IA Especializados. 87 agentes, 12 squads, 7 workflows, 36 tasks.",
   "author": "Rafael Pinheiro",
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "lucide-react": "^0.577.0",
-    "next": "14.2.35",
+    "next": "^16.2.2",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -21,7 +21,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.35",
+    "eslint-config-next": "^16.2.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

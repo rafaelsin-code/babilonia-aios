@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { getTotalStats, squads } from "@/data/squads";
 import {
@@ -90,7 +91,7 @@ export default function Home() {
                   animationDelay: `${i * 0.4}s`,
                 }}
               >
-                <img src={agent.photo} alt="" className="w-full h-full object-cover" />
+                <Image src={agent.photo || ""} alt="" width={48} height={48} className="w-full h-full object-cover" />
               </div>
             );
           })}

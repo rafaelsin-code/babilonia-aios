@@ -58,7 +58,7 @@ export default function Sidebar() {
 
         {/* Stats */}
         <div className="mt-6 px-3">
-          <p className="text-xs text-slate-500">12 squads · 140 agentes</p>
+          <p className="text-xs text-slate-500">12 squads · 87 agentes</p>
         </div>
       </nav>
 
