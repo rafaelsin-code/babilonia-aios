@@ -210,7 +210,7 @@ export default function DownloadsPage() {
             <h4 className="text-xs font-bold uppercase tracking-widest text-blue-700">Pré-requisitos</h4>
           </div>
           <div className="flex flex-wrap gap-2">
-            {["Node.js 18+", "Git", "Claude Code (Anthropic CLI)"].map((req) => (
+            {["Node.js 20.9+", "Git", "Claude Code (Anthropic CLI)"].map((req) => (
               <span key={req} className="px-4 py-2 rounded-lg text-sm font-medium bg-white text-slate-700 border border-blue-200/50 shadow-sm">
                 {req}
               </span>

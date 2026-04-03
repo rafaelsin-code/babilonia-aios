@@ -32,7 +32,7 @@ Diferente de chatbots genéricos, cada agente é um **especialista profundo** na
 
 ### Pré-requisitos
 
-- **Node.js** 18 ou superior
+- **Node.js** 20.9 ou superior
 - **Git**
 - **Claude Code** (Anthropic CLI) — [instalar aqui](https://docs.anthropic.com/claude-code)
 
