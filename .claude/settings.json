@@ -1,0 +1,18 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "echo '🏛️  Babilônia AIOS · 87 agentes · 12 squads · /babilonia'"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat .claude/banner.txt 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
