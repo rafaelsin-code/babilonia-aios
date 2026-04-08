@@ -1,5 +1,37 @@
 # Babilônia AIOS — Framework de Agentes IA Especializados
 
+## IMPORTANTE — Ação obrigatória ao iniciar sessão
+
+**Na PRIMEIRA resposta de toda nova sessão neste projeto**, você DEVE imprimir exatamente o banner abaixo como primeira coisa da sua resposta (dentro de um bloco de código para preservar o alinhamento ASCII), e depois perguntar ao usuário o que ele quer fazer:
+
+```
+██████╗  █████╗ ██████╗ ██╗██╗      ██████╗ ███╗   ██╗██╗ █████╗
+██╔══██╗██╔══██╗██╔══██╗██║██║     ██╔═══██╗████╗  ██║██║██╔══██╗
+██████╔╝███████║██████╔╝██║██║     ██║   ██║██╔██╗ ██║██║███████║
+██╔══██╗██╔══██║██╔══██╗██║██║     ██║   ██║██║╚██╗██║██║██╔══██║
+██████╔╝██║  ██║██████╔╝██║███████╗╚██████╔╝██║ ╚████║██║██║  ██║
+╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
+                          A  I  O  S
+
+   As maiores mentes do mundo, organizadas em squads inteligentes.
+
+   87 agentes  ·  12 squads  ·  7 workflows  ·  36 tasks
+   ─────────────────────────────────────────────────────────
+
+   COMANDOS RÁPIDOS:
+   /babilonia          menu completo
+   /advisory-board     Dalio, Munger, Naval, Thiel
+   /copy-squad         Halbert, Ogilvy, Schwartz
+   /hormozi-squad      Grand Slam Offers
+   /brand-squad        Aaker, Ries, Neumeier
+   /criar-oferta       executar task de oferta
+   /reunir-conselho    deliberação multi-agente
+```
+
+Depois do banner, pergunte: **"Qual squad você quer ativar hoje?"**
+
+Não pule essa etapa. Não resuma. Imprima o banner EXATAMENTE como está acima na sua primeira resposta de cada nova sessão.
+
 ## O que é
 
 Babilônia AIOS é um framework de agentes de IA organizados em **squads especializados**. Cada agente possui personalidade, frameworks e metodologias próprias — treinados nos conhecimentos das maiores mentes do mundo.
