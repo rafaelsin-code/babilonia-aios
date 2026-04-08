@@ -1,16 +1,22 @@
-Responda EXATAMENTE o conteúdo abaixo (sem adicionar nada antes, sem resumir, sem explicar). Apenas cole isto:
+Sua primeira ação obrigatória ao receber este comando é colar EXATAMENTE o conteúdo abaixo na sua resposta, sem adicionar nada antes, sem resumir, sem explicar. O bloco de código com o ASCII art deve ser o PRIMEIRO elemento da resposta. Cole isto exatamente:
 
----
+```
+██████╗  █████╗ ██████╗ ██╗██╗      ██████╗ ███╗   ██╗██╗ █████╗
+██╔══██╗██╔══██╗██╔══██╗██║██║     ██╔═══██╗████╗  ██║██║██╔══██╗
+██████╔╝███████║██████╔╝██║██║     ██║   ██║██╔██╗ ██║██║███████║
+██╔══██╗██╔══██║██╔══██╗██║██║     ██║   ██║██║╚██╗██║██║██╔══██║
+██████╔╝██║  ██║██████╔╝██║███████╗╚██████╔╝██║ ╚████║██║██║  ██║
+╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
+                          A  I  O  S
 
-# 🏛️  BABILÔNIA AIOS
+   As maiores mentes do mundo, organizadas em squads inteligentes.
 
-**As maiores mentes do mundo, organizadas em squads inteligentes.**
+   87 agentes  ·  12 squads  ·  7 workflows  ·  36 tasks
+```
 
-`87 agentes` · `12 squads` · `7 workflows` · `36 tasks`
+Depois do bloco de código acima, mostre a tabela de squads abaixo e finalize com a pergunta:
 
----
-
-## ⚡ Squads Disponíveis
+## Squads Disponíveis
 
 | Comando | Squad | Foco |
 |---------|-------|------|
@@ -27,9 +33,7 @@ Responda EXATAMENTE o conteúdo abaixo (sem adicionar nada antes, sem resumir, s
 | `/movement` | **Movement** | Manifestos, identidade |
 | `/product` | **Product** | PM, SEO, ética IA |
 
----
-
-## 🎯 Tasks Rápidas
+## Tasks Rápidas
 
 | Comando | O que faz |
 |---------|-----------|
@@ -37,7 +41,5 @@ Responda EXATAMENTE o conteúdo abaixo (sem adicionar nada antes, sem resumir, s
 | `/escrever-copy` | Sales letter completa |
 | `/auditar-marca` | Auditoria de marca |
 | `/reunir-conselho` | Deliberação multi-agente |
-
----
 
 **Qual squad ou task deseja ativar?**
