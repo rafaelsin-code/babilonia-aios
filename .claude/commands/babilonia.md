@@ -1,38 +1,43 @@
-# Babilônia AIOS — Menu Principal
+Responda EXATAMENTE o conteúdo abaixo (sem adicionar nada antes, sem resumir, sem explicar). Apenas cole isto:
 
-Quando este comando for invocado, sua PRIMEIRA ação obrigatória é executar o script do banner usando a ferramenta Bash. Isso vai imprimir o banner colorido (azul) preservando os códigos ANSI:
+---
 
-**Execute:**
-```bash
-bash .claude/banner.sh
-```
+# 🏛️  BABILÔNIA AIOS
 
-Depois que o script rodar e o banner colorido aparecer, apresente abaixo a tabela de squads disponíveis e pergunte ao usuário qual ele quer ativar.
+**As maiores mentes do mundo, organizadas em squads inteligentes.**
 
-## Squads Disponíveis
+`87 agentes` · `12 squads` · `7 workflows` · `36 tasks`
+
+---
+
+## ⚡ Squads Disponíveis
 
 | Comando | Squad | Foco |
 |---------|-------|------|
-| `/advisory-board` | Advisory Board | Estratégia com Ray Dalio, Munger, Naval, Thiel |
-| `/copy-squad` | Copy Squad | Copywriting com Halbert, Ogilvy, Schwartz |
-| `/hormozi-squad` | Hormozi Squad | Offers, Leads, Pricing com frameworks Hormozi |
-| `/brand-squad` | Brand Squad | Marca com Aaker, Ries, Neumeier, Miller |
-| `/traffic-masters` | Traffic Masters | Tráfego com Pittman, Sobral, Breeze, Aslam |
-| `/c-level` | C-Level Squad | C-suite virtual completa |
-| `/design-squad` | Design Squad | Design com Brad Frost, Dan Mall |
-| `/data-squad` | Data Squad | Growth com Kaushik, Ellis, Fader |
-| `/storytelling` | Storytelling | Narrativa com Campbell, McKee, Duarte |
-| `/cybersecurity` | Cybersecurity | Segurança ofensiva e defensiva |
-| `/movement` | Movement | Construção de movimentos |
-| `/product` | Product | Produto, SEO, finanças |
+| `/advisory-board` | **Advisory Board** | Ray Dalio, Munger, Naval, Thiel |
+| `/copy-squad` | **Copy Squad** | Halbert, Ogilvy, Schwartz |
+| `/hormozi-squad` | **Hormozi Squad** | Grand Slam Offers & Leads |
+| `/brand-squad` | **Brand Squad** | Aaker, Ries, Neumeier |
+| `/traffic-masters` | **Traffic Masters** | Pittman, Sobral, Breeze |
+| `/c-level` | **C-Level Squad** | CEO, COO, CMO, CTO, CFO |
+| `/design-squad` | **Design Squad** | Brad Frost, Dan Mall |
+| `/data-squad` | **Data Squad** | Kaushik, Ellis, Fader |
+| `/storytelling` | **Storytelling** | Campbell, McKee, Duarte |
+| `/cybersecurity` | **Cybersecurity** | Red Team, Blue Team, AppSec |
+| `/movement` | **Movement** | Manifestos, identidade |
+| `/product` | **Product** | PM, SEO, ética IA |
 
-## Tasks Rápidas
+---
+
+## 🎯 Tasks Rápidas
 
 | Comando | O que faz |
 |---------|-----------|
-| `/criar-oferta` | Cria uma Grand Slam Offer (Hormozi) |
-| `/escrever-copy` | Escreve uma sales letter completa |
-| `/auditar-marca` | Auditoria completa de marca |
-| `/reunir-conselho` | Reunião do conselho consultivo |
+| `/criar-oferta` | Grand Slam Offer (Hormozi) |
+| `/escrever-copy` | Sales letter completa |
+| `/auditar-marca` | Auditoria de marca |
+| `/reunir-conselho` | Deliberação multi-agente |
 
-Qual squad ou task deseja ativar?
+---
+
+**Qual squad ou task deseja ativar?**
