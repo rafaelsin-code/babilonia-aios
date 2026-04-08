@@ -2,17 +2,5 @@
   "statusLine": {
     "type": "command",
     "command": "printf '\\033[38;2;37;99;235m🏛️  Babilônia AIOS\\033[0m \\033[38;2;148;163;184m·\\033[0m 87 agentes \\033[38;2;148;163;184m·\\033[0m 12 squads \\033[38;2;148;163;184m·\\033[0m \\033[38;2;34;211;238m/babilonia\\033[0m'"
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash .claude/banner.sh 2>/dev/null || true"
-          }
-        ]
-      }
-    ]
   }
 }
