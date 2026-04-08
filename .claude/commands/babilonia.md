@@ -1,26 +1,15 @@
 # Babilônia AIOS — Menu Principal
 
-Quando este comando for invocado, sua PRIMEIRA ação deve ser imprimir EXATAMENTE o banner abaixo dentro de um bloco de código (para preservar o alinhamento ASCII). Depois do banner, mostre a tabela de squads e pergunte qual o usuário quer ativar.
+Quando este comando for invocado, sua PRIMEIRA ação obrigatória é executar o script do banner usando a ferramenta Bash. Isso vai imprimir o banner colorido (azul) preservando os códigos ANSI:
 
-## Banner (imprimir como primeira coisa, dentro de ```)
-
+**Execute:**
+```bash
+bash .claude/banner.sh
 ```
-██████╗  █████╗ ██████╗ ██╗██╗      ██████╗ ███╗   ██╗██╗ █████╗
-██╔══██╗██╔══██╗██╔══██╗██║██║     ██╔═══██╗████╗  ██║██║██╔══██╗
-██████╔╝███████║██████╔╝██║██║     ██║   ██║██╔██╗ ██║██║███████║
-██╔══██╗██╔══██║██╔══██╗██║██║     ██║   ██║██║╚██╗██║██║██╔══██║
-██████╔╝██║  ██║██████╔╝██║███████╗╚██████╔╝██║ ╚████║██║██║  ██║
-╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
-                          A  I  O  S
 
-   As maiores mentes do mundo, organizadas em squads inteligentes.
-
-   87 agentes  ·  12 squads  ·  7 workflows  ·  36 tasks
-```
+Depois que o script rodar e o banner colorido aparecer, apresente abaixo a tabela de squads disponíveis e pergunte ao usuário qual ele quer ativar.
 
 ## Squads Disponíveis
-
-Digite o comando para ativar um squad:
 
 | Comando | Squad | Foco |
 |---------|-------|------|
