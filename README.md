@@ -1,198 +1,206 @@
-<p align="center">
-  <strong>Babilônia AIOS</strong>
-</p>
+<div align="center">
 
-<h3 align="center">As maiores mentes do mundo, organizadas em squads inteligentes, trabalhando para você.</h3>
+# 🏛️ Babilônia AIOS
 
-<p align="center">
-  <a href="#instalacao">Instalação</a> &bull;
-  <a href="#o-que-e">O que é</a> &bull;
-  <a href="#squads">Squads</a> &bull;
-  <a href="#como-funciona">Como funciona</a> &bull;
-  <a href="#contribuindo">Contribuindo</a>
-</p>
+### As maiores mentes do mundo, organizadas em squads inteligentes.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/agentes-87-blue" alt="87 agentes" />
-  <img src="https://img.shields.io/badge/squads-12-blue" alt="12 squads" />
-  <img src="https://img.shields.io/badge/workflows-7-blue" alt="7 workflows" />
-  <img src="https://img.shields.io/badge/tasks-36-blue" alt="36 tasks" />
-  <img src="https://img.shields.io/badge/licença-MIT-green" alt="MIT License" />
-</p>
+**Framework open-source de agentes IA especializados para Claude Code.**
+Construído para quem leva resultado a sério.
+
+[![CI](https://github.com/rafaelsin-code/babilonia-aios/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaelsin-code/babilonia-aios/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+![Agentes](https://img.shields.io/badge/agentes-87-2563EB?style=for-the-badge)
+![Squads](https://img.shields.io/badge/squads-12-2563EB?style=for-the-badge)
+![Workflows](https://img.shields.io/badge/workflows-7-2563EB?style=for-the-badge)
+![Tasks](https://img.shields.io/badge/tasks-36-2563EB?style=for-the-badge)
+
+[**📺 Aula completa**](https://babilonia.aaltacupula.com/aula) ·
+[**🌐 Site oficial**](https://babilonia.aaltacupula.com) ·
+[**📥 Instalação**](#-instalação) ·
+[**🤝 Contribuir**](CONTRIBUTING.md)
+
+</div>
 
 ---
 
-## O que é
+## 📖 Sobre
 
-**Babilônia AIOS** é uma plataforma open-source de agentes de inteligência artificial organizados em **squads especializados**. Cada agente possui personalidade, frameworks e metodologias próprias — treinados nos conhecimentos das maiores mentes do mundo.
+**Babilônia AIOS** é um framework open-source de agentes de IA organizados em **squads especializados**, feito para rodar nativamente dentro do [Claude Code](https://docs.anthropic.com/claude-code).
 
-Diferente de chatbots genéricos, cada agente é um **especialista profundo** na sua área. Quando um squad recebe uma missão, os agentes se coordenam por meio de **workflows inteligentes**, onde o output de um se torna o input do próximo.
+Diferente de prompts genéricos ou chatbots rasos, cada agente é um **especialista profundo** com personalidade, frameworks e metodologias próprias — calibrado com base em especialistas reais como Ray Dalio, Gary Halbert, Alex Hormozi, David Aaker, Joseph Campbell e outros.
 
-## Instalação
+Quando um squad recebe uma missão, os agentes se coordenam via **workflows** (pipelines onde o output de um vira o input do próximo), criando uma cadeia de valor profissional em vez de respostas isoladas.
+
+## ✨ O que vem dentro
+
+- 🧠 **87 agentes especializados** com system prompts completos (.md)
+- 👥 **12 squads temáticos** (Advisory Board, Copy, Hormozi, Brand, Traffic, C-Level, Design, Data, Storytelling, Cybersecurity, Movement, Product)
+- ⚡ **7 workflows multi-agente** (.yaml) com fases, dependências e critérios de conclusão
+- 🎯 **36 tasks executáveis** com inputs, steps e outputs definidos
+- 💬 **17 slash commands** nativos para Claude Code (`/babilonia`, `/advisory-board`, `/criar-oferta`, etc.)
+- 🌐 **Site Next.js** completo com documentação interativa e aula visual
+- 📚 **CLAUDE.md** com instruções de uso do framework
+
+## 🚀 Instalação
 
 ### Pré-requisitos
 
 - **Node.js** 20.9 ou superior
 - **Git**
-- **Claude Code** (Anthropic CLI) — [instalar aqui](https://docs.anthropic.com/claude-code)
+- **[Claude Code](https://docs.anthropic.com/claude-code)** (Anthropic CLI) — obrigatório para usar os slash commands
 
-### Instalação rápida
+### Em 4 comandos
 
 ```bash
-# Clone o repositório
+# 1. Clone o repositório
 git clone https://github.com/rafaelsin-code/babilonia-aios.git
 
-# Entre na pasta
+# 2. Entre na pasta
 cd babilonia-aios
 
-# Instale as dependências
+# 3. Instale as dependências
 npm install
 
-# Inicie o servidor de desenvolvimento
+# 4. Inicie o servidor
 npm run dev
 ```
 
 Acesse **http://localhost:3000** no navegador.
 
-### Instalação em uma linha
+### Em uma linha
 
 ```bash
 git clone https://github.com/rafaelsin-code/babilonia-aios.git && cd babilonia-aios && npm install && npm run dev
 ```
 
-### Usando os agentes no Claude Code
+## 💬 Usando no Claude Code
 
-Abra o projeto no Claude Code e use os slash commands:
+Depois de clonar, abra o projeto no Claude Code:
 
 ```bash
 cd babilonia-aios
 claude
 ```
 
-Depois use qualquer comando:
+Então use qualquer slash command:
 
-| Comando | Descrição |
+| Comando | O que faz |
 |---------|-----------|
-| `/babilonia` | Menu com todos os comandos |
-| `/advisory-board` | Conselho com Dalio, Munger, Naval, Thiel |
-| `/copy-squad` | Squad de copy com Halbert, Ogilvy, Schwartz |
-| `/hormozi-squad` | Frameworks Hormozi completos |
-| `/criar-oferta` | Executa Grand Slam Offer passo a passo |
-| `/escrever-copy` | Escreve sales letter completa |
-| `/auditar-marca` | Auditoria completa de marca |
+| `/babilonia` | Menu completo com todos os squads |
+| `/advisory-board` | Conselho com Ray Dalio, Munger, Naval, Thiel |
+| `/copy-squad` | Lendas do copywriting (Halbert, Ogilvy, Schwartz) |
+| `/hormozi-squad` | Frameworks Hormozi (Offers, Leads, Scaling) |
+| `/brand-squad` | Estratégia de marca (Aaker, Ries, Neumeier) |
+| `/criar-oferta` | Executa uma Grand Slam Offer do zero |
+| `/escrever-copy` | Escreve uma sales letter completa |
 | `/reunir-conselho` | Deliberação estratégica multi-agente |
 
-## Squads
+Veja o [menu completo](.claude/commands/) com os 17 slash commands disponíveis.
 
-| Squad | Agentes | Descrição |
-|-------|---------|-----------|
-| **Advisory Board** | 11 | Conselheiros estratégicos — Ray Dalio, Charlie Munger, Naval Ravikant, Peter Thiel e mais |
-| **Copy Squad** | 10 | Lendas do copywriting — Gary Halbert, Eugene Schwartz, David Ogilvy e mais |
-| **Hormozi Squad** | 8 | Frameworks de Alex Hormozi — Offers, Leads, Pricing, Scaling |
-| **Brand Squad** | 9 | Estratégia de marca — David Aaker, Al Ries, Marty Neumeier e mais |
-| **Traffic Masters** | 7 | Tráfego pago — Molly Pittman, Tom Breeze, Kasim Aslam, Pedro Sobral e mais |
-| **C-Level Squad** | 7 | C-suite virtual — CEO, COO, CMO, CTO, CIO, CAIO, CFO |
-| **Design Squad** | 6 | Design operations — Brad Frost, Dan Mall, Dave Malouf e mais |
-| **Data Squad** | 7 | Estrategistas data-driven — Avinash Kaushik, Sean Ellis, Peter Fader e mais |
-| **Storytelling Squad** | 7 | Mestres da narrativa — Joseph Campbell, Robert McKee, Nancy Duarte e mais |
-| **Cybersecurity Squad** | 6 | Cibersegurança — Pentest, Red Team, Blue Team, AppSec, IR |
-| **Movement Squad** | 5 | Construção de movimentos — Fenomenologia, identidade, manifestos |
-| **Product Squad** | 4 | Produto e crescimento — PM, SEO, CFO, AI Ethics |
+## 🧠 Como funciona
 
-## Como funciona
+### Agentes
 
-### 1. Agentes Especializados
-
-Cada agente possui:
+Cada agente é o Claude **vestido com uma persona específica**. Mesma IA, mas com:
 - **Personalidade** definida (tom, estilo, abordagem)
-- **Frameworks** próprios (metodologias, modelos mentais)
+- **Frameworks** próprios (metodologias calibradas)
 - **Especialidade** profunda (área de domínio)
 - **Biografia** baseada em especialistas reais
 
-### 2. Workflows Inteligentes
+### Squads
 
-Pipelines que conectam agentes em sequência:
+Um **squad** é um time de agentes que trabalham juntos, coordenados por um *chief*. Ex: o Advisory Board tem Ray Dalio, Charlie Munger, Naval Ravikant e outros 8 conselheiros.
+
+### Workflows
+
+Pipelines sequenciais onde o output de um agente vira o input do próximo:
 
 ```
-Estrategista → Copywriter → Revisor → Resultado Final
+Strategist → Headline Writer → Lead Writer → Body Writer → Reviewer
 ```
 
-Cada agente contribui com sua perspectiva única, criando uma cadeia de valor onde o todo é maior que a soma das partes.
+Como uma linha de montagem onde cada agente contribui com sua perspectiva única.
 
-### 3. Tasks Executáveis
+### Tasks
 
-Ações concretas com:
-- Inputs e outputs definidos
-- Critérios de qualidade
-- Comandos de ativação
+Ações executáveis com inputs e outputs definidos. Você digita um comando e a task executa os passos em ordem.
 
-## Stack Tecnológica
+## 👥 Squads disponíveis
 
-- **Framework:** Next.js 14 (App Router)
-- **Linguagem:** TypeScript
-- **Estilização:** Tailwind CSS
-- **Ícones:** Lucide React
-- **Deploy:** Vercel (recomendado)
+| Squad | Agentes | Descrição |
+|-------|---------|-----------|
+| 🎯 **Advisory Board** | 11 | Ray Dalio, Charlie Munger, Naval Ravikant, Peter Thiel e mais |
+| ✍️ **Copy Squad** | 10 | Gary Halbert, Eugene Schwartz, David Ogilvy e mais |
+| 💰 **Hormozi Squad** | 8 | Frameworks de Alex Hormozi (Offers, Leads, Pricing, Scaling) |
+| 🏷️ **Brand Squad** | 9 | David Aaker, Al Ries, Marty Neumeier e mais |
+| 🚀 **Traffic Masters** | 7 | Molly Pittman, Tom Breeze, Kasim Aslam, Pedro Sobral |
+| 👔 **C-Level Squad** | 7 | CEO, COO, CMO, CTO, CIO, CAIO, CFO virtuais |
+| 🎨 **Design Squad** | 6 | Brad Frost, Dan Mall, Dave Malouf e mais |
+| 📊 **Data Squad** | 7 | Avinash Kaushik, Sean Ellis, Peter Fader e mais |
+| 📖 **Storytelling** | 7 | Joseph Campbell, Robert McKee, Nancy Duarte e mais |
+| 🔒 **Cybersecurity** | 6 | Pentest, Red Team, Blue Team, AppSec, IR |
+| ✊ **Movement Squad** | 5 | Fenomenologia, identidade, manifestos |
+| 📦 **Product Squad** | 4 | PM, SEO, CFO, AI Ethics |
 
-## Estrutura do Projeto
+## 🛠️ Stack Tecnológica
+
+- **Framework:** [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- **Linguagem:** [TypeScript 5](https://www.typescriptlang.org/)
+- **Estilização:** [Tailwind CSS](https://tailwindcss.com)
+- **Ícones:** [Lucide React](https://lucide.dev)
+- **Deploy:** [Vercel](https://vercel.com) (recomendado)
+
+## 📁 Estrutura do Projeto
 
 ```
 babilonia-aios/
 ├── squads/                          # CORE — Definições dos squads
 │   ├── advisory-board/
 │   │   ├── config.yaml              # Configuração do squad
-│   │   ├── agents/                  # Agentes (system prompts completos)
-│   │   │   ├── board-chair.md
-│   │   │   ├── ray-dalio.md
-│   │   │   ├── charlie-munger.md
-│   │   │   └── ...
+│   │   ├── agents/                  # System prompts completos
 │   │   ├── tasks/                   # Tasks executáveis
-│   │   │   ├── convene-board.md
-│   │   │   └── ...
-│   │   └── workflows/               # Workflows orquestrados
-│   │       ├── wf-board-meeting.yaml
-│   │       └── ...
-│   ├── copy-squad/                  # 10 copywriters lendários
-│   ├── hormozi-squad/               # Frameworks Alex Hormozi
-│   ├── brand-squad/                 # Estratégia de marca
-│   ├── traffic-masters/             # Tráfego pago
-│   ├── c-level-squad/               # C-suite virtual
-│   ├── design-squad/                # Design operations
-│   ├── data-squad/                  # Growth e analytics
-│   ├── storytelling-squad/          # Narrativa e pitching
-│   ├── cybersecurity-squad/         # Segurança ofensiva e defensiva
-│   ├── movement-squad/              # Construção de movimentos
-│   └── product-squad/               # Produto, SEO, finanças
+│   │   └── workflows/               # Workflows orquestrados (.yaml)
+│   └── ... (11 outros squads)
 │
 ├── src/                             # WEBAPP — Interface visual
-│   ├── app/                         # Páginas (Next.js App Router)
-│   ├── components/                  # Componentes reutilizáveis
-│   └── data/                        # Dados compilados dos squads
+│   ├── app/                         # Páginas Next.js (App Router)
+│   │   ├── page.tsx                 # Home
+│   │   ├── squads/                  # Lista e detalhes dos squads
+│   │   ├── agents/                  # Lista e detalhes dos agentes
+│   │   ├── aula/                    # Apresentação interativa
+│   │   └── downloads/               # Página de instalação
+│   ├── components/
+│   └── data/
 │
-├── .github/workflows/               # CI/CD — Lint + Build automático
-├── tailwind.config.ts
-├── next.config.mjs
-├── package.json
-├── LICENSE
-└── README.md
+├── .claude/                         # Configuração do Claude Code
+│   ├── commands/                    # 17 slash commands
+│   └── settings.json                # Statusline customizada
+│
+├── .github/                         # GitHub config
+│   ├── workflows/ci.yml             # CI/CD pipeline
+│   ├── ISSUE_TEMPLATE/              # Templates de issues
+│   └── PULL_REQUEST_TEMPLATE.md
+│
+├── CLAUDE.md                        # Instruções do framework
+├── CONTRIBUTING.md                  # Guia de contribuição
+├── CODE_OF_CONDUCT.md               # Código de conduta
+├── SECURITY.md                      # Política de segurança
+├── CHANGELOG.md                     # Histórico de versões
+└── LICENSE                          # MIT License
 ```
 
-### Usando os agentes diretamente
-
-Cada arquivo `.md` em `squads/*/agents/` é um **system prompt completo** pronto para usar com qualquer LLM (Claude, GPT, etc.). Basta copiar o conteúdo e colar como system prompt.
-
-Cada arquivo `.md` em `squads/*/tasks/` define uma **task executável** com inputs, steps e outputs esperados.
-
-Cada `.yaml` em `squads/*/workflows/` define um **pipeline multi-agente** com fases, dependências e critérios de conclusão.
-
-## Deploy
+## 🚢 Deploy
 
 ### Vercel (recomendado)
 
 1. Faça um fork deste repositório
 2. Acesse [vercel.com](https://vercel.com)
 3. Importe o repositório
-4. Clique em "Deploy"
+4. Clique em **Deploy** — pronto
 
 ### Build manual
 
@@ -201,42 +209,41 @@ npm run build
 npm start
 ```
 
-## Contribuindo
+## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Para contribuir:
+Contribuições são extremamente bem-vindas! Veja o [**guia completo de contribuição**](CONTRIBUTING.md) antes de abrir um PR.
 
-1. Faça um fork do repositório
-2. Crie uma branch (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'feat: adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+Tipos de contribuição aceitos:
+- 🐛 Bug reports e correções
+- ✨ Novos agentes, squads, workflows ou tasks
+- 📝 Melhorias na documentação
+- 🎨 Melhorias na UI do site
+- 🔒 Correções de segurança
 
-### Adicionando um novo agente
+Ao participar, você concorda com o [Código de Conduta](CODE_OF_CONDUCT.md).
 
-Edite `src/data/squads.ts` e adicione o agente ao squad correspondente seguindo a interface `Agent`:
+## 🔒 Segurança
 
-```typescript
-{
-  id: "nome-do-agente",
-  name: "Nome do Agente",
-  role: "Role do Agente",
-  specialty: "Especialidade",
-  description: "Descrição curta",
-  bio: "Biografia completa com 4-6 frases...",
-  frameworks: ["Framework 1", "Framework 2"],
-  personality: "Traços de personalidade",
-  color: "#HEX",
-  initials: "NA",
-  photo: "URL da foto",
-}
-```
+Encontrou uma vulnerabilidade? **Não abra uma issue pública.** Veja [SECURITY.md](SECURITY.md) para reportar de forma privada.
 
-## Licença
+## 📜 Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Este projeto está licenciado sob a [MIT License](LICENSE) — você pode usar, modificar, distribuir e até vender, desde que mantenha o aviso de copyright.
+
+## ⭐ Apoie o projeto
+
+Se o Babilônia AIOS te ajudou, **deixe uma estrela** no repositório. Isso ajuda outros devs a encontrarem o projeto.
 
 ---
 
-<p align="center">
-  Feito por <a href="https://github.com/rafaelsin-code">Rafael Pinheiro</a>
-</p>
+<div align="center">
+
+**Feito com ☕ e 🧠 por [Rafael Pinheiro](https://github.com/rafaelsin-code)**
+
+[Site](https://babilonia.aaltacupula.com) ·
+[Aula](https://babilonia.aaltacupula.com/aula) ·
+[Instagram](https://instagram.com/rafaelpinheiro) ·
+[Report Bug](https://github.com/rafaelsin-code/babilonia-aios/issues/new?template=bug_report.yml) ·
+[Request Feature](https://github.com/rafaelsin-code/babilonia-aios/issues/new?template=feature_request.yml)
+
+</div>

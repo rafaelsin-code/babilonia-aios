@@ -1,0 +1,53 @@
+name: ✨ Feature Request
+description: Sugerir uma nova funcionalidade ou melhoria
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado pela sugestão! Preencha as informações abaixo para nos ajudar a avaliar.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Qual problema esta feature resolve?
+      description: Descreva o problema ou limitação que você está enfrentando.
+      placeholder: "Eu gostaria de [...] porque [...]"
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solução proposta
+      description: Como você imagina que essa feature deveria funcionar?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: Você considerou outras abordagens? Quais?
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Tipo de feature
+      options:
+        - Novo agente
+        - Novo squad
+        - Novo workflow
+        - Nova task
+        - Melhoria no site
+        - Melhoria na DX (developer experience)
+        - Outro
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Contexto adicional
+      description: Screenshots, mockups ou qualquer outra informação relevante.

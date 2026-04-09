@@ -1,0 +1,71 @@
+name: 🐛 Bug Report
+description: Reportar um bug ou comportamento inesperado
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar um bug! Preencha as informações abaixo para facilitar a investigação.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição do bug
+      description: Uma descrição clara e concisa do bug.
+      placeholder: O que aconteceu?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Passos para reproduzir
+      description: Como podemos reproduzir o problema?
+      placeholder: |
+        1. Execute `npm run dev`
+        2. Navegue para `/squads`
+        3. Clique em...
+        4. Veja o erro
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+      description: O que você esperava que acontecesse?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Se aplicável, adicione screenshots para ajudar a explicar o problema.
+
+  - type: input
+    id: node-version
+    attributes:
+      label: Versão do Node.js
+      placeholder: "v20.9.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Sistema Operacional
+      options:
+        - macOS
+        - Linux
+        - Windows
+        - Outro
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Contexto adicional
+      description: Qualquer outra informação relevante sobre o problema.

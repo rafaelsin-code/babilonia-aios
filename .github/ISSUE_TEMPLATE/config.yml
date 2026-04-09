@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentação
+    url: https://babilonia.aaltacupula.com/aula
+    about: Veja a aula completa sobre Claude Code, Agentes, Squads e Workflows
+  - name: 💬 Discussões
+    url: https://github.com/rafaelsin-code/babilonia-aios/discussions
+    about: Perguntas gerais e ideias (não bugs ou features específicas)
